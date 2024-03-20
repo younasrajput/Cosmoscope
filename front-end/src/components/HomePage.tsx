@@ -7,6 +7,7 @@ function HomePage() {
   const [data, setData] = useState<BlockData | null>(null);
   const [loading, setLoading] = useState(false);
 
+  // fetchLatestBlock function
   const fetchLatestBlock = async () => {
     setLoading(true);
     try {
@@ -26,9 +27,10 @@ function HomePage() {
   useEffect(() => {
     fetchLatestBlock();
   }, []);
+
   return (
     <>
-      <main className="min-h-screen bg-yellow-200">
+      <main className="min-h-screen">
         {loading ? (
           <Loading />
         ) : (
