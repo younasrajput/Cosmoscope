@@ -6,14 +6,14 @@ import Logo from "./components/Logo";
 function BaseLayout() {
   return (
     <>
-      <div className="font-poppins min-h-screen text-gray-700 py-5">
+      <div className="font-poppins text-gray-700 py-5 min-h-screen max-w-screen-xl mx-auto">
         <Link to="/">
           <Logo />
         </Link>
         <Navbar />
-        <div className="max-w-screen-xl min-h-screen mx-auto">
-          <Outlet />
-        </div>
+
+        <Outlet />
+
         <Footer />
       </div>
     </>

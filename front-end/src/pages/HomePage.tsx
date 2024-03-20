@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../services/fetchData";
-import Loading from "./Loading";
+import Loading from "../components/Loading";
 import { BlockData } from "../types/block.types";
 
 function HomePage() {
