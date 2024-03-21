@@ -1,16 +1,24 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ProposalsPaginationProps } from "../../../types/proposal.types";
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-function ProposalsPagination({
+interface PagePaginationProps<T> {
+  pageOffset: number;
+  setPageOffset: (offset: number) => void;
+  pageLimit: number;
+  data: T | null;
+  itemCount: number;
+}
+
+function PagePagination<T>({
   pageOffset,
   setPageOffset,
   pageLimit,
   data,
-}: ProposalsPaginationProps) {
+  itemCount,
+}: PagePaginationProps<T>) {
   return (
     <>
       {/* pagination container */}
@@ -31,12 +39,14 @@ function ProposalsPagination({
         </button>
         <button
           className={`rounded-full py-2 px-5 font-semibold ${
-            data !== null && data.proposals.length < pageLimit
+            data !== null && itemCount < pageLimit
               ? "pointer-events-none"
               : "hover:bg-white hover:shadow-md"
           } transition-all ease-in-out duration-150 group`}
           onClick={() => setPageOffset(pageOffset + pageLimit)}
-          disabled={data !== null && data.proposals.length < pageLimit}
+          disabled={
+            data !== null && data !== undefined && itemCount < pageLimit
+          }
         >
           <FontAwesomeIcon
             icon={faChevronRight}
@@ -48,4 +58,4 @@ function ProposalsPagination({
   );
 }
 
-export default ProposalsPagination;
+export default PagePagination;

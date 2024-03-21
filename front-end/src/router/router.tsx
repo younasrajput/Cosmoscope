@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import BaseLayout from "../layouts/BaseLayout";
 import ProposalsPage from "../pages/proposalPage/ProposalsPage";
-import ValidatorsPage from "../pages/ValidatorsPage";
+import ValidatorsPage from "../pages/validatorPage/ValidatorsPage";
 
 export const router = createBrowserRouter([
   {

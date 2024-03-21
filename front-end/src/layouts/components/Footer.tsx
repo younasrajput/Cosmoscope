@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <footer className="absolute bottom-0 opacity-30 text-xs py-3 w-full max-w-screen-xl">
+      <footer className="mt-auto opacity-30 text-xs py-3 w-full max-w-screen-xl">
         <div className="flex w-full px-3 gap-10 justify-between">
           <span>©Margery Olethea</span>
           <div className="flex gap-5">

@@ -8,7 +8,6 @@ export const fetchData = async (endpoint: string) => {
     );
 
     const data = await response.json();
-
     if (data.error) {
       throw new Error(data.error.message);
     }

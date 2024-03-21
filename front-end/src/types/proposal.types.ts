@@ -37,24 +37,3 @@ export interface PaginationInfo {
   next_key: string | null;
   total: string;
 }
-
-export interface ProposalsHeaderProps {
-  setProposalStatus: (status: string) => void;
-  proposalStatus: string;
-  pageOffset: number;
-  setPageOffset: (offset: number) => void;
-  pageLimit: number;
-  data: ProposalData | null;
-}
-
-export interface ProposalsPaginationProps {
-  pageOffset: number;
-  setPageOffset: (offset: number) => void;
-  pageLimit: number;
-  data: ProposalData | null;
-}
-
-export interface ProposalsStatusProps {
-  proposalStatus: string;
-  setProposalStatus: (status: string) => void;
-}

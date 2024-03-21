@@ -35,10 +35,8 @@ function HomePage() {
           <Loading />
         ) : (
           <>
-            <p>{JSON.stringify(data?.block.data.txs)}</p>
-            <h1 className="min-h-screen">home page here!</h1>
-            <h1 className="min-h-screen">home page here!</h1>
-            <h1 className="min-h-screen">home page here!</h1>
+            {/* <p>{JSON.stringify(data?.block.data.txs)}</p> */}
+            <h1 className="">home page here!</h1>
           </>
         )}
       </main>
