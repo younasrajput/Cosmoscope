@@ -3,7 +3,7 @@ function Loading() {
     <>
       <div
         role="status"
-        className="w-full h-full flex justify-center items-center"
+        className="w-full h-full flex justify-center items-center mt-10"
       >
         <svg
           aria-hidden="true"

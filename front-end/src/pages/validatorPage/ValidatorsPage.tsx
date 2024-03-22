@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { fetchData } from "../../services/fetchData";
+import { fetchDataCH } from "../../services/fetchData";
 import PageHeader from "../../components/PageHeader";
 import { ValidatorData } from "../../types/validator.types";
 import { validatorStatuses } from "../../helpers/statusesData";
 import Loading from "../../components/Loading";
 import Swal from "sweetalert2";
-import ValidatorsTableHeader from "./components/validatorsTableHeader";
 import ValidatorsTableContent from "./components/ValidatorsTableContent";
+import ValidatorsTableHeader from "./components/ValidatorsTableHeader";
 
 function ValidatorsPage() {
   const [data, setData] = useState<ValidatorData | null>(null);
@@ -18,12 +18,12 @@ function ValidatorsPage() {
   const [pageOffset, setPageOffset] = useState(0);
   const pageLimit = 15;
 
-  // fetchValidators function
+  // fetch data
   const fetchValidators = async () => {
     setLoading(true);
     try {
-      const validators: ValidatorData = await fetchData(
-        `cosmos/staking/v1beta1/validators?status=${validatorStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
+      const validators: ValidatorData = await fetchDataCH(
+        `staking/v1beta1/validators?status=${validatorStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
       );
       setData(validators);
     } catch (error) {

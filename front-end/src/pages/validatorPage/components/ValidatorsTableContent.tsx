@@ -1,5 +1,5 @@
-import validatorDelegatorShareFormatter from "../../../helpers/validatorDelegatorShareFormatter";
-import validatorDelegatorShareSimplifier from "../../../helpers/validatorDelegatorShareSimplifier";
+import numberFormatter from "../../../helpers/NumberFormatter";
+import numberSimplifier from "../../../helpers/numberSimplifier";
 import validatorStatusSplitter from "../../../helpers/validatorStatusSplitter";
 import {
   VlBgStyleGenerator,
@@ -51,14 +51,12 @@ function ValidatorsTableContent(validator: ValidatorItem) {
         {/* validator delegator share */}
         <div className="w-3/12">
           <p className="font-semibold">
-            {validatorDelegatorShareSimplifier(+validator.delegator_shares)}
+            {numberSimplifier(+validator.delegator_shares)}
           </p>
           <p className="text-xs">
-            <span>
-              {validatorDelegatorShareFormatter(+validator.delegator_shares)[0]}
-            </span>
+            <span>{numberFormatter(+validator.delegator_shares)[0]}</span>
             <span className="font-light text-gray-500">
-              {validatorDelegatorShareFormatter(+validator.delegator_shares)[1]}
+              {numberFormatter(+validator.delegator_shares)[1]}
             </span>
           </p>
         </div>

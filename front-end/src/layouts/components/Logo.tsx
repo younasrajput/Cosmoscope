@@ -2,6 +2,7 @@ function Logo() {
   return (
     <>
       <div className="flex justify-center items-center gap-1">
+        {/* TODO : import image instead of code */}
         <svg
           height="32"
           viewBox="0 0 32 32"

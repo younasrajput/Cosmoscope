@@ -1,6 +1,4 @@
-export default function validatorDelegatorShareFormatter(
-  number: number,
-): string[] {
+export default function numberFormatter(number: number): string[] {
   let [integerPart, decimalPart] = number.toString().split(".");
 
   integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
