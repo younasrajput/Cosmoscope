@@ -4,8 +4,8 @@ import Swal from "sweetalert2";
 import { AtomData } from "../../../types/atom.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import timeDifferenceCounter from "../../../helpers/timeDifferenceCounter";
-import numberSplitter from "../../../helpers/numberSplitter";
+import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
+import { numberSplitter } from "../../../helpers/numberHelpers";
 
 function AtomInfo() {
   const [data, setData] = useState<AtomData | null>(null);

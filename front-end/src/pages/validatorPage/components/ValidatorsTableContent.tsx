@@ -1,10 +1,10 @@
-import numberFormatter from "../../../helpers/numberFormatter";
-import numberSplitter from "../../../helpers/numberSplitter";
-import validatorStatusSplitter from "../../../helpers/validatorStatusSplitter";
+import { numberFormatter } from "../../../helpers/numberHelpers";
+import { numberSplitter } from "../../../helpers/numberHelpers";
+import { validatorStatusSplitter } from "../../../helpers/stringHelpers";
 import {
   VlBgStyleGenerator,
   VlTextStyleGenerator,
-} from "../../../helpers/validatorStatusStyleGenerator";
+} from "../../../helpers/styleHelpers";
 import { ValidatorItem } from "../../../types/validator.types";
 
 function ValidatorsTableContent({ validator }: { validator: ValidatorItem }) {

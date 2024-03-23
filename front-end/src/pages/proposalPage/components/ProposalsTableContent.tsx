@@ -1,10 +1,10 @@
-import dayDifferenceCounter from "../../../helpers/dayDifferenceCounter";
-import proposalStatusSplitter from "../../../helpers/proposalStatusSplitter";
+import { dayDifferenceCounter } from "../../../helpers/dateHelpers";
+import { proposalStatusSplitter } from "../../../helpers/stringHelpers";
 import {
   PrBgStyleGenerator,
   PrTextStyleGenerator,
-} from "../../../helpers/proposalStatusStyleGenerator";
-import proposalTypeSplitter from "../../../helpers/proposalTypeSplitter";
+} from "../../../helpers/styleHelpers";
+import { proposalTypeSplitter } from "../../../helpers/stringHelpers";
 import { ProposalItem } from "../../../types/proposal.types";
 
 function ProposalsTableContent({ proposal }: { proposal: ProposalItem }) {

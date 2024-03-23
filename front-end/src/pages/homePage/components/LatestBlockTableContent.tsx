@@ -1,6 +1,6 @@
-import numberSplitter from "../../../helpers/numberSplitter";
-import timeDifferenceCounter from "../../../helpers/timeDifferenceCounter";
-import timeFormatter from "../../../helpers/timeFormatter";
+import { numberSplitter } from "../../../helpers/numberHelpers";
+import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
+import { timeFormatter } from "../../../helpers/dateHelpers";
 import { BlockHistoryData } from "../../../types/block.types";
 
 function LatestBlockTableContent({ block }: { block: BlockHistoryData }) {

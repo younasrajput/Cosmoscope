@@ -1,6 +1,6 @@
-import messageExtractor from "../../../helpers/messageExtractor";
-import numberSplitter from "../../../helpers/numberSplitter";
-import stringSimplifier from "../../../helpers/stringSimplifier";
+import { messageExtractor } from "../../../helpers/stringHelpers";
+import { numberSplitter } from "../../../helpers/numberHelpers";
+import { stringSimplifier } from "../../../helpers/stringHelpers";
 import { TransactionDetail } from "../../../types/transaction.types";
 
 function TransactionTableContent({ data }: { data: TransactionDetail }) {

@@ -1,5 +1,5 @@
-import numberSplitter from "../../../helpers/numberSplitter";
-import timeDifferenceCounter from "../../../helpers/timeDifferenceCounter";
+import { numberSplitter } from "../../../helpers/numberHelpers";
+import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
 import { BlockData } from "../../../types/block.types";
 
 function LatestBlockHeader({ data }: { data: BlockData }) {

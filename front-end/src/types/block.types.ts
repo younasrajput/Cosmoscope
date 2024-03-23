@@ -4,6 +4,7 @@ export interface BlockHistoryData {
   txs: number;
   time: string;
 }
+
 export interface BlockData {
   block_id: {
     hash: string;

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchDataCH } from "../../services/fetchData";
 import PageHeader from "../../components/PageHeader";
 import { ValidatorData } from "../../types/validator.types";
-import { validatorStatuses } from "../../helpers/statusesData";
+import { validatorStatuses } from "../../datas/statusesData";
 import Loading from "../../components/Loading";
 import Swal from "sweetalert2";
 import ValidatorsTableContent from "./components/ValidatorsTableContent";

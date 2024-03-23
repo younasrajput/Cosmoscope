@@ -7,7 +7,7 @@ import ProposalsTableHeader from "./components/ProposalsTableHeader";
 import ProposalsTableContent from "./components/ProposalsTableContent";
 import Swal from "sweetalert2";
 import PageHeader from "../../components/PageHeader";
-import { proposalStatuses } from "../../helpers/statusesData";
+import { proposalStatuses } from "../../datas/statusesData";
 
 function ProposalsPage() {
   const [data, setData] = useState<ProposalData | null>(null);
