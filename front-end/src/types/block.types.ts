@@ -1,3 +1,9 @@
+export interface BlockHistoryData {
+  height: string;
+  proposer: string;
+  txs: number;
+  time: string;
+}
 export interface BlockData {
   block_id: {
     hash: string;

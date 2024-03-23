@@ -1,5 +1,5 @@
-import numberFormatter from "../../../helpers/NumberFormatter";
-import numberSimplifier from "../../../helpers/numberSimplifier";
+import numberFormatter from "../../../helpers/numberFormatter";
+import numberSplitter from "../../../helpers/numberSplitter";
 import validatorStatusSplitter from "../../../helpers/validatorStatusSplitter";
 import {
   VlBgStyleGenerator,
@@ -7,7 +7,7 @@ import {
 } from "../../../helpers/validatorStatusStyleGenerator";
 import { ValidatorItem } from "../../../types/validator.types";
 
-function ValidatorsTableContent(validator: ValidatorItem) {
+function ValidatorsTableContent({ validator }: { validator: ValidatorItem }) {
   return (
     <>
       <div className="flex text-md border border-white bg-white bg-opacity-50 rounded-3xl px-5 py-2 my-3 items-center gap-5 h-16">
@@ -51,12 +51,12 @@ function ValidatorsTableContent(validator: ValidatorItem) {
         {/* validator delegator share */}
         <div className="w-3/12">
           <p className="font-semibold">
-            {numberSimplifier(+validator.delegator_shares)}
+            {numberFormatter(+validator.delegator_shares)}
           </p>
           <p className="text-xs">
-            <span>{numberFormatter(+validator.delegator_shares)[0]}</span>
+            <span>{numberSplitter(+validator.delegator_shares)[0]}</span>
             <span className="font-light text-gray-500">
-              {numberFormatter(+validator.delegator_shares)[1]}
+              {numberSplitter(+validator.delegator_shares)[1]}
             </span>
           </p>
         </div>

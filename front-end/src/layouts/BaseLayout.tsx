@@ -1,6 +1,7 @@
 import { Link, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Logo from "./components/Logo";
+import Footer from "./components/Footer";
 
 function BaseLayout() {
   return (
@@ -12,6 +13,8 @@ function BaseLayout() {
         <Navbar />
 
         <Outlet />
+
+        <Footer />
       </div>
     </>
   );

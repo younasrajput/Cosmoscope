@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
-import { fetchDataCH } from "../../services/fetchData";
-import Loading from "../../components/Loading";
-import { BlockData } from "../../types/block.types";
 import InfoSection from "./components/InfoSection";
+import TransactionsSection from "./components/TransactionsSection";
+import { fetchDataCH } from "../../services/fetchData";
+import { BlockData } from "../../types/block.types";
 import Swal from "sweetalert2";
+import LatestBlockSection from "./components/LatestBlockSection";
 
 function HomePage() {
   const [data, setData] = useState<BlockData | null>(null);
-  const [loading, setLoading] = useState(false);
 
   // fetch data
   const fetchLatestBlock = async () => {
-    setLoading(true);
     try {
       const latestBlocks: BlockData = await fetchDataCH(
         "base/tendermint/v1beta1/blocks/latest",
       );
-      console.log(latestBlocks, "ini blocks");
+
       setData(latestBlocks);
     } catch (error) {
       Swal.fire({
@@ -24,25 +23,26 @@ function HomePage() {
         text: "Internal server error",
       });
       console.log(error);
-    } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
-    // fetchLatestBlock();
+    fetchLatestBlock();
+
+    const interval = setInterval(fetchLatestBlock, 10_000); // 10 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
       <main className="min-h-screen">
         <InfoSection />
-        {loading ? (
-          <Loading />
-        ) : (
+
+        {data && (
           <>
-            {/* <p>{JSON.stringify(data)}</p> */}
-            <h1 className="">home page here!</h1>
+            <LatestBlockSection data={data} />{" "}
+            <TransactionsSection data={data} />
           </>
         )}
       </main>

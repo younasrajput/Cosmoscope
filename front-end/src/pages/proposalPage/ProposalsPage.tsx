@@ -25,7 +25,6 @@ function ProposalsPage() {
       const proposals: ProposalData = await fetchDataCH(
         `gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
       );
-      console.log(proposals, "ini proposals");
       setData(proposals);
     } catch (error) {
       Swal.fire({
@@ -65,7 +64,7 @@ function ProposalsPage() {
           ) : (
             data &&
             data.proposals.map((proposal, index) => (
-              <ProposalsTableContent key={index} {...proposal} />
+              <ProposalsTableContent key={index} proposal={proposal} />
             ))
           )}
         </section>

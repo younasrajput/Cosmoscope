@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { fetchDataCG } from "../../../services/fetchData";
 import Swal from "sweetalert2";
 import { AtomData } from "../../../types/atom.types";
-import timeDifferenceCounter from "../../../helpers/timeDifferenceCounter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import numberFormatter from "../../../helpers/NumberFormatter";
+import timeDifferenceCounter from "../../../helpers/timeDifferenceCounter";
+import numberSplitter from "../../../helpers/numberSplitter";
 
 function AtomInfo() {
   const [data, setData] = useState<AtomData | null>(null);
@@ -15,7 +15,6 @@ function AtomInfo() {
       const atomInfo = await fetchDataCG(
         "coins/markets?vs_currency=usd&ids=cosmos&price_change_percentage=24h&locale=en",
       );
-      console.log(atomInfo, "ini atom");
       setData(atomInfo[0] as AtomData);
     } catch (error) {
       Swal.fire({
@@ -26,18 +25,18 @@ function AtomInfo() {
     }
   };
 
-  useEffect(() => {
-    fetchAtomInfo();
+  // useEffect(() => {
+  //   fetchAtomInfo();
 
-    const interval = setInterval(fetchAtomInfo, 300_000);
+  //   const interval = setInterval(fetchAtomInfo, 5 * 60_000); // 5 minutes
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <>
       {/* atom */}
-      <div>
+      <section>
         <div className="flex items-center justify-between">
           <h3 className="font-tenorSans text-lg font-bold flex gap-2 items-center">
             {/* TODO : import image instead of code */}
@@ -60,8 +59,9 @@ function AtomInfo() {
                 </g>
               </g>
             </svg>
-            <span>ATOM/USD</span>
+            <span className="font-bold">ATOM/USD</span>
           </h3>
+          {/* TODO : import image instead of writing */}
           <p className="text-xs text-gray-500 text-right">
             Powered by CoinGecko
           </p>
@@ -70,7 +70,7 @@ function AtomInfo() {
         {/* price start */}
         <div className="flex gap-3 items-center">
           <span className="font-semibold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-900">
-            $ {data?.current_price || 0}
+            ${data?.current_price || 0}
           </span>
 
           {data && (
@@ -109,30 +109,30 @@ function AtomInfo() {
         {/* info */}
         <div className="mt-3">
           {/* market cap */}
-          <p className="flex justify-between">
+          <p className="flex justify-between items-center">
             Market Cap:{" "}
-            <span className="font-semibold">
-              $ {numberFormatter(data?.market_cap || 0)}
+            <span className="font-semibold text-lg">
+              ${numberSplitter(data?.market_cap || 0)}
             </span>
           </p>
 
           {/* fully dilluted valuation */}
-          <p className="flex justify-between">
+          <p className="flex justify-between items-center">
             Fully Dilluted Valuation:{" "}
-            <span className="font-semibold">
-              $ {numberFormatter(data?.fully_diluted_valuation || 0)}
+            <span className="font-semibold text-lg">
+              ${numberSplitter(data?.fully_diluted_valuation || 0)}
             </span>
           </p>
 
           {/* circulating supply */}
-          <p className="flex justify-between">
+          <p className="flex justify-between items-center">
             Circulating Supply:{" "}
-            <span className="font-semibold">
-              {numberFormatter(data?.circulating_supply || 0)}
+            <span className="font-semibold text-lg">
+              {numberSplitter(data?.circulating_supply || 0)}
             </span>
           </p>
         </div>
-      </div>
+      </section>
     </>
   );
 }

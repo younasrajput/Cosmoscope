@@ -10,12 +10,10 @@ import { faXTwitter } from "@fortawesome/free-brands-svg-icons/faXTwitter";
 function CosmosInfo() {
   return (
     <>
-      <div className="h-full flex-col flex justify-between">
+      <section className="h-full flex-col flex justify-between">
         {/* cosmos info */}
         <div>
-          <span className="font-tenorSans font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-900">
-            Cosmos Hub
-          </span>
+          <h1 className="font-tenorSans font-bold text-3xl">Cosmos Hub</h1>
           <p className="mt-1">
             The Cosmos Hub is an Internet of Blockchains, a network of
             blockchains able to communicate with each other in a decentralized
@@ -75,7 +73,7 @@ function CosmosInfo() {
             <FontAwesomeIcon icon={faDiscord} size="xl" />
           </a>
         </div>
-      </div>
+      </section>
     </>
   );
 }

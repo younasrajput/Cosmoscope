@@ -62,7 +62,7 @@ function ValidatorsPage() {
           ) : (
             data &&
             data.validators.map((validator, index) => (
-              <ValidatorsTableContent key={index} {...validator} />
+              <ValidatorsTableContent key={index} validator={validator} />
             ))
           )}
         </section>

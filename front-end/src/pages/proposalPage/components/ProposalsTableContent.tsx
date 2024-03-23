@@ -7,7 +7,7 @@ import {
 import proposalTypeSplitter from "../../../helpers/proposalTypeSplitter";
 import { ProposalItem } from "../../../types/proposal.types";
 
-function ProposalsTableContent(proposal: ProposalItem) {
+function ProposalsTableContent({ proposal }: { proposal: ProposalItem }) {
   return (
     <>
       <div className="flex text-md border border-white bg-white bg-opacity-50 rounded-3xl px-5 py-2 my-3 items-center gap-5">
