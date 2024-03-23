@@ -25,7 +25,7 @@ function Navbar() {
                 <span
                   className={`${
                     location.pathname === item.path &&
-                    "text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-500"
+                    "text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800"
                   }`}
                 >
                   {item.name}

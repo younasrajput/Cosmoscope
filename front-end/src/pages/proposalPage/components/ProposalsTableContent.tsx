@@ -13,7 +13,7 @@ function ProposalsTableContent({ proposal }: { proposal: ProposalItem }) {
       <div className="flex text-md border border-white bg-white bg-opacity-50 rounded-3xl px-5 py-2 my-3 items-center gap-5">
         {/* proposal id */}
         <div className="w-1/12">
-          <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-500">
+          <span className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800">
             #{proposal.proposal_id}
           </span>
         </div>

@@ -15,7 +15,7 @@ function ValidatorsTableContent({ validator }: { validator: ValidatorItem }) {
         <div className="w-3/12">
           <p className="font-semibold ">{validator.description.moniker}</p>
           <a
-            className="font-light text-xs text-transparent bg-gradient-to-r from-gray-600 to-violet-500 bg-clip-text hover:text-gray-700 transition-all ease-in-out duration-150"
+            className="font-light text-xs text-transparent bg-gradient-to-r from-gray-600 to-violet-600 bg-clip-text hover:text-gray-700 transition-all ease-in-out duration-150"
             href={validator.description.website}
             target="_blank"
             rel="noreferrer"
@@ -43,7 +43,7 @@ function ValidatorsTableContent({ validator }: { validator: ValidatorItem }) {
 
         {/* validator commission rate */}
         <div className="w-2/12">
-          <span className="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-500">
+          <span className="font-semibold text-lg text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800">
             {Math.floor(+validator.commission.commission_rates.rate * 100)}%
           </span>
         </div>

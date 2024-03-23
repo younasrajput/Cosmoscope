@@ -25,13 +25,13 @@ function AtomInfo() {
     }
   };
 
-  // useEffect(() => {
-  //   fetchAtomInfo();
+  useEffect(() => {
+    fetchAtomInfo();
 
-  //   const interval = setInterval(fetchAtomInfo, 5 * 60_000); // 5 minutes
+    const interval = setInterval(fetchAtomInfo, 5 * 60_000); // 5 minutes
 
-  //   return () => clearInterval(interval);
-  // }, []);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
