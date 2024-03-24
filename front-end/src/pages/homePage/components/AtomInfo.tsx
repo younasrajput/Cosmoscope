@@ -37,7 +37,7 @@ function AtomInfo() {
     <>
       {/* atom */}
       <section>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between max-md:flex-col max-md:items-start max-md:mb-3 max-sm:mb-1">
           <h3 className="font-tenorSans text-lg font-bold flex gap-2 items-center">
             {/* TODO : import image instead of code */}
             <svg
@@ -59,17 +59,17 @@ function AtomInfo() {
                 </g>
               </g>
             </svg>
-            <span className="font-bold">ATOM/USD</span>
+            <span className="font-bold max-md:text-xs">ATOM/USD</span>
           </h3>
-          {/* TODO : import image instead of writing */}
-          <p className="text-xs text-gray-500 text-right">
+          {/* TODO : import image instead of text */}
+          <p className="text-xs text-gray-500 text-right max-sm:w-full max-sm:text-[8px] max-sm:text-left">
             Powered by CoinGecko
           </p>
         </div>
 
         {/* price start */}
-        <div className="flex gap-3 items-center">
-          <span className="font-semibold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-900">
+        <div className="flex gap-3 items-center max-sm:flex-col max-sm:items-start max-sm:gap-0">
+          <span className="font-semibold text-4xl max-md:text-3xl max-sm:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-900">
             ${data?.current_price || 0}
           </span>
 
@@ -102,32 +102,32 @@ function AtomInfo() {
         </div>
         {/* price end */}
 
-        <p className="text-xs italic text-gray-500">
+        <p className="text-xs italic text-gray-500 max-sm:text-[8px]">
           last updated {timeDifferenceCounter(data?.last_updated || "")}
         </p>
 
         {/* info */}
         <div className="mt-3">
           {/* market cap */}
-          <p className="flex justify-between items-center">
+          <p className="max-2xl:flex max-2xl:justify-between max-2xl:items-center max-md:flex-col max-md:my-2 max-md:items-start">
             Market Cap:{" "}
-            <span className="font-semibold text-lg">
+            <span className="font-semibold text-lg max-md:text-md max-sm:text-sm">
               ${numberSplitter(data?.market_cap || 0)}
             </span>
           </p>
 
           {/* fully dilluted valuation */}
-          <p className="flex justify-between items-center">
+          <p className="max-2xl:flex max-2xl:justify-between max-2xl:items-center max-md:flex-col max-md:my-2 max-md:items-start">
             Fully Dilluted Valuation:{" "}
-            <span className="font-semibold text-lg">
+            <span className="font-semibold text-lg max-md:text-md max-sm:text-sm">
               ${numberSplitter(data?.fully_diluted_valuation || 0)}
             </span>
           </p>
 
           {/* circulating supply */}
-          <p className="flex justify-between items-center">
+          <p className="max-2xl:flex max-2xl:justify-between max-2xl:items-center max-md:flex-col max-md:my-2 max-md:items-start">
             Circulating Supply:{" "}
-            <span className="font-semibold text-lg">
+            <span className="font-semibold text-lg  max-md:text-md max-sm:text-sm">
               {numberSplitter(data?.circulating_supply || 0)}
             </span>
           </p>

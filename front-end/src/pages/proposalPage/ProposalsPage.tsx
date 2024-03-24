@@ -43,7 +43,7 @@ function ProposalsPage() {
 
   return (
     <>
-      <main className="py-5">
+      <main className="py-5 mx-10">
         <PageHeader<ProposalData>
           setPageStatus={setProposalStatus}
           pageStatus={proposalStatus}

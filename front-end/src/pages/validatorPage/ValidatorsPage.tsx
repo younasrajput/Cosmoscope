@@ -43,7 +43,7 @@ function ValidatorsPage() {
 
   return (
     <>
-      <main className="py-5">
+      <main className="py-5 mx-10">
         <PageHeader<ValidatorData>
           setPageStatus={setValidatorStatus}
           pageStatus={validatorStatus}

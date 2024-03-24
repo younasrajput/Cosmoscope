@@ -36,7 +36,7 @@ function HomePage() {
 
   return (
     <>
-      <main className="min-h-screen">
+      <main className="min-h-screen mx-10">
         <InfoSection />
 
         <>

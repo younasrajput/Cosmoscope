@@ -5,7 +5,7 @@ function ProposalsTableHeader() {
         <div className="w-1/12">#id</div>
         <div className="w-5/12">title</div>
         <div className="w-2/12">type</div>
-        <div className="w-2/12">status</div>
+        <div className="w-2/12 max-md:hidden">status</div>
         <div className="w-2/12">voting end time</div>
       </div>
     </>

@@ -13,8 +13,10 @@ function CosmosInfo() {
       <section className="h-full flex-col flex justify-between">
         {/* cosmos info */}
         <div>
-          <h1 className="font-tenorSans font-bold text-3xl">Cosmos Hub</h1>
-          <p className="mt-1">
+          <h1 className="font-tenorSans font-bold text-3xl max-sm:text-xl max-md:text-2xl">
+            Cosmos Hub
+          </h1>
+          <p className="mt-1 max-md:text-sm max-sm:text-xs">
             The Cosmos Hub is an Internet of Blockchains, a network of
             blockchains able to communicate with each other in a decentralized
             way.

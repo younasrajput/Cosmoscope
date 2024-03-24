@@ -51,6 +51,7 @@ function PageHeader<T>({
       <section className="flex justify-between">
         <PageStatus
           pageStatus={pageStatus}
+          setPageOffset={setPageOffset}
           setPageStatus={setPageStatus}
           statuses={statuses}
         />
