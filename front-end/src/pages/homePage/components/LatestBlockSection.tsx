@@ -20,10 +20,9 @@ function LatestBlockSection({ data }: { data: BlockData | null }) {
     const newDataList = dataDetail && [dataDetail, ...dataList];
 
     if (newDataList) {
-      // {{IF NEEDED}}
-      // if (newDataList.length > 10) {
-      //   newDataList.pop();
-      // }
+      if (newDataList.length > 25) {
+        newDataList.pop();
+      }
 
       setDataList(newDataList);
     }

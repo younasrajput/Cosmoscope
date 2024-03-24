@@ -55,9 +55,8 @@ function TransactionsSection({ data }: { data: BlockData | null }) {
     if (newDataList) {
       setDataList(newDataList);
 
-      // {{IF NEEDED}}
-      // const limit = 20;
-      // setDataList(newDataList.slice(0, limit));
+      const limit = 40;
+      setDataList(newDataList.slice(0, limit));
     }
   };
 
