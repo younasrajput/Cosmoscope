@@ -2,6 +2,7 @@ import { messageExtractor } from "../../../helpers/stringHelpers";
 import { numberSplitter } from "../../../helpers/numberHelpers";
 import { stringSimplifier } from "../../../helpers/stringHelpers";
 import { TransactionDetail } from "../../../types/transaction.types";
+import Tooltip from "../../../components/Tooltip";
 
 function TransactionTableContent({ data }: { data: TransactionDetail }) {
   return (
@@ -11,9 +12,7 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
         <div className="w-2/12 font-semibold">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800 font-semibold group relative">
             {stringSimplifier(data.hash)}
-            <span className="z-10 left-5 top-3 absolute px-5 py-1.5 rounded-full bg-white text-sm text-gray-700 border border-violet-500 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300">
-              {data.hash}
-            </span>
+            <Tooltip text={data.hash} />
           </span>
         </div>
 
@@ -33,9 +32,7 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
           {data.memo ? (
             <span className="group relative ">
               {stringSimplifier(data.memo, 20)}
-              <span className="z-10 left-5 top-3 absolute px-5 py-1.5 rounded-2xl bg-white text-sm text-gray-700 border border-violet-500 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300">
-                {data.memo}
-              </span>
+              <Tooltip text={data.memo} />
             </span>
           ) : (
             <span className="text-gray-400 italic font-light">

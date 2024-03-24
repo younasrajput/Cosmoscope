@@ -7,31 +7,34 @@ import { BlockData } from "../../../types/block.types";
 import TransactionTableHeader from "./TransactionTableHeader";
 import TransactionTableContent from "./TransactionTableContent";
 
-function TransactionsSection({ data }: { data: BlockData }) {
-  const txs = data.block.data.txs;
+function TransactionsSection({ data }: { data: BlockData | null }) {
+  const txs = data && data.block.data.txs;
 
   // decode transactions
-  const convertedTxs = txs.map((tx) =>
-    Uint8Array.from(atob(tx), (c) => c.charCodeAt(0)),
-  );
+  const convertedTxs =
+    txs && txs.map((tx) => Uint8Array.from(atob(tx), (c) => c.charCodeAt(0)));
 
   const decodedTxs = [] as { hash: string; tx: DecodedTxRaw; height: string }[];
 
   const decodeTransactions = (txsArray: Uint8Array[]) => {
-    txsArray.forEach((tx: Uint8Array) => {
-      decodedTxs.push({
-        hash: hashTx(tx),
-        tx: decodeTxRaw(tx),
-        height: data.block.header.height,
+    if (data) {
+      txsArray.forEach((tx: Uint8Array) => {
+        decodedTxs.push({
+          hash: hashTx(tx),
+          tx: decodeTxRaw(tx),
+          height: data.block.header.height,
+        });
       });
-    });
+    }
   };
 
   useEffect(() => {
-    decodeTransactions(convertedTxs);
+    if (convertedTxs) {
+      decodeTransactions(convertedTxs);
+    }
   }, [txs]);
 
-  // extract transactions
+  // extract transactions into list
   const [dataList, setDataList] = useState<TransactionDetail[] | []>([]);
 
   const setTransactionsHistory = () => {
@@ -70,7 +73,7 @@ function TransactionsSection({ data }: { data: BlockData }) {
 
       <TransactionTableHeader />
 
-      <section className="max-h-[31rem] overflow-auto mb-16">
+      <section className="max-h-[31rem] overflow-auto mb-10">
         {dataList &&
           dataList.map((data, index) => (
             <TransactionTableContent key={index} data={data} />

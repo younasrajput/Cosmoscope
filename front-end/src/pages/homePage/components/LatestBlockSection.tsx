@@ -5,7 +5,7 @@ import LatestBlockHeader from "./LatestBlockHeader";
 import LatestBlockTableHeader from "./LatestBlockTableHeader";
 import LatestBlockTableContent from "./LatestBlockTableContent";
 
-function LatestBlockSection({ data }: { data: BlockData }) {
+function LatestBlockSection({ data }: { data: BlockData | null }) {
   const [dataList, setDataList] = useState<BlockHistoryData[] | []>([]);
 
   const setBlockHistory = async () => {

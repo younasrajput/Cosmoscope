@@ -29,7 +29,7 @@ function HomePage() {
   useEffect(() => {
     fetchLatestBlock();
 
-    const interval = setInterval(fetchLatestBlock, 10_000); // 10 seconds
+    const interval = setInterval(fetchLatestBlock, 7_000); // 7 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -39,12 +39,9 @@ function HomePage() {
       <main className="min-h-screen">
         <InfoSection />
 
-        {data && (
-          <>
-            <LatestBlockSection data={data} />{" "}
-            <TransactionsSection data={data} />
-          </>
-        )}
+        <>
+          <LatestBlockSection data={data} /> <TransactionsSection data={data} />
+        </>
       </main>
     </>
   );
