@@ -18,3 +18,6 @@ export function numberSplitter(number: number): string[] {
 
   return [integerPart, decimalPart];
 }
+
+export const usdFormatter = (number: number) =>
+  `$${Intl.NumberFormat("us").format(number).toString()}`;

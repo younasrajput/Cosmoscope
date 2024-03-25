@@ -75,7 +75,10 @@ export function timeDifferenceCounter(dateString: string): string {
   }
 }
 
-export function timeFormatter(timestamp: string): string {
+export function timeFormatter(
+  timestamp: string | number,
+  withYear: boolean = true,
+): string {
   const date = new Date(timestamp);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -83,5 +86,9 @@ export function timeFormatter(timestamp: string): string {
   const hours = String(date.getHours()).padStart(2, "0");
   const minutes = String(date.getMinutes()).padStart(2, "0");
 
-  return `${year}-${month}-${day}, ${hours}:${minutes}`;
+  if (withYear) {
+    return `${year}/${month}/${day}, ${hours}:${minutes}`;
+  } else {
+    return `${month}/${day}, ${hours}:${minutes}`;
+  }
 }

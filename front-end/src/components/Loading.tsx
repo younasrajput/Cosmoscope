@@ -1,9 +1,9 @@
-function Loading() {
+function Loading({ mt = 10 }: { mt?: number }) {
   return (
     <>
       <div
         role="status"
-        className="w-full h-full flex justify-center items-center mt-10"
+        className={`w-full h-full flex justify-center items-center mt-${mt}`}
       >
         <svg
           aria-hidden="true"
