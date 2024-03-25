@@ -48,18 +48,20 @@ function AtomChart() {
       {loading ? (
         <Loading mt={0} />
       ) : (
-        <AreaChart
-          className="h-full w-full text-xs bg-white bg-opacity-50 border border-white p-5 rounded-3xl shadow-md max-lg:h-72"
-          data={data}
-          index="date"
-          categories={["price"]}
-          colors={["violet-800"]}
-          valueFormatter={usdFormatter}
-          yAxisWidth={60}
-          showAnimation={true}
-          minValue={9}
-          maxValue={15}
-        />
+        data && (
+          <AreaChart
+            className="h-full w-full text-xs bg-white bg-opacity-50 border border-white p-5 rounded-3xl shadow-md max-lg:h-72"
+            data={data}
+            index="date"
+            categories={["price"]}
+            colors={["violet-800"]}
+            valueFormatter={usdFormatter}
+            yAxisWidth={60}
+            showAnimation={true}
+            minValue={9}
+            maxValue={15}
+          />
+        )
       )}
     </>
   );
