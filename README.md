@@ -1,8 +1,10 @@
-# Cosmoscope [link](https://cosmoscope.vercel.app)
+# Cosmoscope 
 
 ## Description
 
 This project is a frontend application for a blockchain explorer focused on the Cosmos Network. It allows users to view blocks, transactions, validators, and proposals.
+
+access the cosmoscope here: [**https://cosmoscope.vercel.app**](https://cosmoscope.vercel.app)
 
 ## Features
 
