@@ -5,7 +5,6 @@ import Loading from "../../components/Loading";
 import { ProposalData } from "../../types/proposal.types";
 import ProposalsTableHeader from "./components/ProposalsTableHeader";
 import ProposalsTableContent from "./components/ProposalsTableContent";
-import Swal from "sweetalert2";
 import PageHeader from "../../components/PageHeader";
 import { proposalStatuses } from "../../datas/statusesData";
 
@@ -27,6 +26,7 @@ function ProposalsPage() {
       );
       setData(proposals);
     } catch (error) {
+      const { default: Swal } = await import("sweetalert2");
       Swal.fire({
         title: "Error!",
         text: "Internal server error",

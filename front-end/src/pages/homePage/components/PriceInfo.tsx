@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { fetchDataCG } from "../../../services/fetchData";
-import Swal from "sweetalert2";
 import { AtomData } from "../../../types/atom.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +16,7 @@ function PriceInfo() {
       );
       setData(atomInfo[0] as AtomData);
     } catch (error) {
+      const { default: Swal } = await import("sweetalert2");
       Swal.fire({
         title: "Error!",
         text: "Internal server error",

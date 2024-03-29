@@ -3,7 +3,6 @@ import InfoSection from "./components/InfoSection";
 import TransactionsSection from "./components/TransactionsSection";
 import { fetchDataCH } from "../../services/fetchData";
 import { BlockData } from "../../types/block.types";
-import Swal from "sweetalert2";
 import LatestBlockSection from "./components/LatestBlockSection";
 
 function HomePage() {
@@ -18,6 +17,7 @@ function HomePage() {
 
       setData(latestBlocks);
     } catch (error) {
+      const { default: Swal } = await import("sweetalert2");
       Swal.fire({
         title: "Error!",
         text: "Internal server error",
@@ -38,10 +38,8 @@ function HomePage() {
     <>
       <main className="min-h-screen mx-10">
         <InfoSection />
-
-        <>
-          <LatestBlockSection data={data} /> <TransactionsSection data={data} />
-        </>
+        <LatestBlockSection data={data} />
+        <TransactionsSection data={data} />
       </main>
     </>
   );

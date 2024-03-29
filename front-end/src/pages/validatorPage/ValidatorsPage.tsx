@@ -5,7 +5,6 @@ import PageHeader from "../../components/PageHeader";
 import { ValidatorData } from "../../types/validator.types";
 import { validatorStatuses } from "../../datas/statusesData";
 import Loading from "../../components/Loading";
-import Swal from "sweetalert2";
 import ValidatorsTableContent from "./components/ValidatorsTableContent";
 import ValidatorsTableHeader from "./components/ValidatorsTableHeader";
 
@@ -27,6 +26,7 @@ function ValidatorsPage() {
       );
       setData(validators);
     } catch (error) {
+      const { default: Swal } = await import("sweetalert2");
       Swal.fire({
         title: "Error!",
         text: "Internal server error",

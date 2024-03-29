@@ -5,7 +5,6 @@ import {
   MarketChartData,
 } from "../../../types/chart.types";
 import { timeFormatter } from "../../../helpers/dateHelpers";
-import Swal from "sweetalert2";
 import Loading from "../../../components/Loading";
 import { AreaChart } from "@tremor/react";
 import { usdFormatter } from "../../../helpers/numberHelpers";
@@ -29,6 +28,7 @@ function AtomChart() {
 
       setData(chartData);
     } catch (error) {
+      const { default: Swal } = await import("sweetalert2");
       Swal.fire({
         title: "Error!",
         text: "Internal server error",
