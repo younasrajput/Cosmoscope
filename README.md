@@ -29,7 +29,7 @@ access the cosmoscope here: [**https://cosmoscope.vercel.app**](https://cosmosco
 
 ## Usage
 
-1. Start the development server: `npm start` (or yarn start)
+1. Start the development server: `npm run dev` 
 2. The application will be accessible at `http://localhost:5173` (default port, might vary)
 
 
