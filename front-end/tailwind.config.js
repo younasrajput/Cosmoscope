@@ -15,9 +15,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-        urbanist: ["Urbanist", "sans-serif"],
         tenorSans: ["Tenor Sans", "sans-serif"],
-        balooChettan2: ["Baloo Chettan 2", "cursive"],
       },
       colors: {
         // light mode
