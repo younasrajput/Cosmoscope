@@ -6,7 +6,7 @@ function LatestBlockHeader({ data }: { data: BlockData | null }) {
   return (
     <>
       <div className="bg-white bg-opacity-50 px-10 py-5 rounded-3xl border border-white w-full mt-10 max-sm:px-5 max-md:py-7 max-sm:py-5">
-        <h1 className="font-tenorSans text-3xl max-sm:text-xl max-md:text-2xl font-bold">
+        <h1 className="font-tenorSans text-3xl max-sm:text-xl max-md:text-2xl">
           Latest Block
         </h1>
 

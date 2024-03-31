@@ -14,7 +14,7 @@ function CosmosInfo() {
         {/* cosmos info */}
 
         <div className="flex justify-between items-center max-sm:flex-col max-sm:justify-none max-sm:items-start">
-          <h1 className="font-tenorSans font-bold text-3xl max-sm:text-xl max-md:text-2xl">
+          <h1 className="font-tenorSans text-3xl max-sm:text-xl max-md:text-2xl">
             Cosmos Hub
           </h1>
 

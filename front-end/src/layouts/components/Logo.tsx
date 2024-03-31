@@ -22,7 +22,7 @@ function Logo() {
             </g>
           </g>
         </svg>
-        <h1 className="font-tenorSans font-bold text-2xl">cosmoscope</h1>
+        <h1 className="font-tenorSans text-2xl">cosmoscope</h1>
       </div>
     </>
   );

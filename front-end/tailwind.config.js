@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-        tenorSans: ["Tenor Sans", "sans-serif"],
+        tenorSans: ["Tenor_Sans", "sans-serif"],
       },
       colors: {
         // light mode

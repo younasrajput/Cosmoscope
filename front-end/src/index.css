@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Swal customization */
 .swal2-title {
   color: #0f172a;
   font-weight: 800;
@@ -20,4 +21,77 @@
 
 .swal2-popup {
   border-radius: 25px !important;
+}
+
+/* Tenor Sans Font */
+@font-face {
+  font-family: "Tenor_Sans";
+  src: url("./fonts/Tenor_Sans/TenorSans-Regular.ttf") format("truetype");
+}
+
+/* Poppins Font with Weights (light to bold) and Italics */
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Light.ttf") format("truetype");
+  font-weight: 300; /* Light weight */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular weight */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium weight */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* Semibold weight */
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold weight */
+}
+
+/* Italic Variations */
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
 }
