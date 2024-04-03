@@ -6,12 +6,17 @@ function Footer() {
           <span>©Margery Olethea</span>
           <div className="flex gap-5">
             <a
+              aria-label="Margery Olethea LinkedIn"
               href="https://www.linkedin.com/in/margery-olethea-07597a158/"
               target="_blank"
             >
               LinkedIn
             </a>
-            <a href="https://www.github.com/MargeryOlethea" target="_blank">
+            <a
+              aria-label="Margery Olethea Github"
+              href="https://www.github.com/MargeryOlethea"
+              target="_blank"
+            >
               Github
             </a>
           </div>

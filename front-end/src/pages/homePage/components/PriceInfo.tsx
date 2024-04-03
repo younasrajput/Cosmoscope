@@ -37,7 +37,7 @@ function PriceInfo() {
     <>
       {/* atom */}
       <div className="flex items-center justify-between">
-        <h3 className="font-tenorSans text-lg flex gap-2 items-center">
+        <p className="font-tenorSans text-lg flex gap-2 items-center">
           {/* TODO : import image instead of code */}
           <svg
             height="20"
@@ -59,7 +59,7 @@ function PriceInfo() {
             </g>
           </svg>
           <span className="max-md:text-xs">ATOM/USD</span>
-        </h3>
+        </p>
         {/* TODO : import image instead of text */}
         <p className="text-xs text-gray-500 text-right max-sm:w-full max-sm:text-[10px]">
           Powered by CoinGecko
