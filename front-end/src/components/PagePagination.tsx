@@ -24,6 +24,7 @@ function PagePagination<T>({
       {/* pagination container */}
       <div className="flex p-1 rounded-full bg-white bg-opacity-30 border border-white">
         <button
+          name="prev-page"
           className={`rounded-full py-2 px-5 font-semibold ${
             pageOffset === 0
               ? "pointer-events-none"
@@ -38,6 +39,7 @@ function PagePagination<T>({
           />
         </button>
         <button
+          name="next-page"
           className={`rounded-full py-2 px-5 font-semibold ${
             data !== null && itemCount < pageLimit
               ? "pointer-events-none"
