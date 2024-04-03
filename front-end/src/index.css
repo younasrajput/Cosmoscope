@@ -26,7 +26,8 @@
 /* Tenor Sans Font */
 @font-face {
   font-family: "Tenor_Sans";
-  src: url("./fonts/Tenor_Sans/TenorSans-Regular.ttf") format("truetype");
+  src: url("../public/fonts/Tenor_Sans/TenorSans-Regular.ttf")
+    format("truetype");
 }
 
 /* Poppins Font with Weights (light to bold) and Italics */
@@ -94,4 +95,8 @@
   src: url("./fonts/Poppins/Poppins-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
 }

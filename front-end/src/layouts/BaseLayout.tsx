@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 function BaseLayout() {
   return (
     <>
-      <div className="font-poppins text-gray-700 py-5 min-h-screen max-w-screen-xl mx-auto flex flex-col text-sm max-md:text-xs">
+      <div className="text-gray-700 py-5 min-h-screen max-w-screen-xl mx-auto flex flex-col text-sm max-md:text-xs">
         <Link to="/">
           <Logo />
         </Link>
