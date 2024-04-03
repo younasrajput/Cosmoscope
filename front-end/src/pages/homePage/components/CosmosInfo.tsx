@@ -22,6 +22,7 @@ function CosmosInfo() {
           <div className="flex gap-3 max-lg:my-2">
             {/* cosmos website */}
             <a
+              aria-label="cosmos website"
               href="https://cosmos.network/"
               target="_blank"
               rel="noreferrer"
@@ -32,6 +33,7 @@ function CosmosInfo() {
 
             {/* cosmos github */}
             <a
+              aria-label="cosmos github"
               href="https://github.com/cosmos"
               target="_blank"
               rel="noreferrer"
@@ -42,6 +44,7 @@ function CosmosInfo() {
 
             {/* cosmos twitter */}
             <a
+              aria-label="cosmos twitter"
               href="https://twitter.com/cosmos"
               target="_blank"
               rel="noreferrer"
@@ -52,6 +55,7 @@ function CosmosInfo() {
 
             {/* cosmos telegram */}
             <a
+              aria-label="cosmos telegram"
               href="https://t.me/cosmosproject"
               target="_blank"
               rel="noreferrer"
@@ -62,6 +66,7 @@ function CosmosInfo() {
 
             {/* cosmos discord */}
             <a
+              aria-label="cosmos discord"
               href="https://discord.gg/cosmosnetwork"
               target="_blank"
               rel="noreferrer"
