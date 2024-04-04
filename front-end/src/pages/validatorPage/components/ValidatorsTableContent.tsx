@@ -15,7 +15,7 @@ function ValidatorsTableContent({ validator }: { validator: ValidatorItem }) {
         <div className="w-3/12 max-md:w-4/12 max-sm:w-5/12">
           <p className="font-semibold ">{validator.description.moniker}</p>
           <a
-            className="font-light text-xs text-transparent bg-gradient-to-r from-gray-600 to-violet-600 bg-clip-text hover:text-gray-700 transition-all ease-in-out duration-150 max-sm:text-[8px] max-sm:truncate"
+            className="font-semilight text-xs text-transparent bg-gradient-to-r from-gray-600 to-violet-600 bg-clip-text hover:text-gray-700 transition-all ease-in-out duration-150 max-sm:text-[8px] max-sm:truncate"
             href={validator.description.website}
             target="_blank"
             rel="noreferrer"
