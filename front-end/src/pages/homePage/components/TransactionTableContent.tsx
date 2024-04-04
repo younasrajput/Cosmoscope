@@ -40,7 +40,8 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
         <div className="w-4/12 text-sm max-lg:hidden">
           {data.memo ? (
             <span className="group relative">
-              {stringSimplifier(data.memo, 10)}
+              {isTablet && stringSimplifier(data.memo, 7)}
+              {isDesktop && stringSimplifier(data.memo, 15)}
               <Tooltip text={data.memo} />
             </span>
           ) : (
