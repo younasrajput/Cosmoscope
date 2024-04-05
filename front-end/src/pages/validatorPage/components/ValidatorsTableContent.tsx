@@ -54,10 +54,7 @@ function ValidatorsTableContent({ validator }: { validator: ValidatorItem }) {
             {numberFormatter(+validator.delegator_shares)}
           </p>
           <p className="text-xs max-sm:hidden">
-            <span>{numberSplitter(+validator.delegator_shares)[0]}</span>
-            <span className="font-light text-gray-500">
-              {numberSplitter(+validator.delegator_shares)[1]}
-            </span>
+            {numberSplitter(+validator.delegator_shares)[0]}
           </p>
         </div>
 

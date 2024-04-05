@@ -1,16 +1,48 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "../pages/homePage/HomePage";
+import { lazy, Suspense } from "react";
+import Loading from "../components/Loading";
 import BaseLayout from "../layouts/BaseLayout";
-import ProposalsPage from "../pages/proposalPage/ProposalsPage";
-import ValidatorsPage from "../pages/validatorPage/ValidatorsPage";
+
+const HomePage = lazy(
+  () => import(/* webpackPrefetch: true */ "../pages/homePage/HomePage"),
+);
+const ProposalsPage = lazy(
+  () =>
+    import(/* webpackPrefetch: true */ "../pages/proposalPage/ProposalsPage"),
+);
+const ValidatorsPage = lazy(
+  () => import("../pages/validatorPage/ValidatorsPage"),
+);
 
 export const router = createBrowserRouter([
   {
     element: <BaseLayout />,
     children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/proposals", element: <ProposalsPage /> },
-      { path: "/validators", element: <ValidatorsPage /> },
+      {
+        path: "/",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <HomePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/proposals",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ProposalsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/validators",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <ValidatorsPage />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
