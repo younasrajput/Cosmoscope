@@ -13,10 +13,10 @@ export function stringSimplifier(text: string, len: number = 5): string {
 export function messageExtractor(messagesArray: TransactionMessage[]): string {
   return messagesArray.reduce((acc, message) => {
     const splittedMessage = message.typeUrl.split(".");
-    const finalMessage = splittedMessage[splittedMessage.length - 1]
-      .replace("Msg", "")
-      .split(/(?=[A-Z])/)
-      .join(" ");
+    const finalMessage = splittedMessage[splittedMessage.length - 1].replace(
+      "Msg",
+      "",
+    );
 
     if (acc.includes(finalMessage)) return acc;
 
