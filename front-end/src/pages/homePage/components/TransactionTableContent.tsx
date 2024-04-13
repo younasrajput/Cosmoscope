@@ -25,7 +25,9 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
         {/* height */}
         <div className="w-1/12 max-lg:w-2/12 max-sm:hidden">
           <Link to={`/blocks/${data.height}`}>
-            {numberSplitter(+data.height)}
+            <span className="hover:bg-gradient-to-r hover:from-gray-700 hover:to-violet-700 hover:text-transparent hover:bg-clip-text transition-all ease-in-out duration-150">
+              {numberSplitter(+data.height)}
+            </span>
           </Link>
         </div>
 

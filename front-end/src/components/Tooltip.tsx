@@ -13,7 +13,7 @@ function Tooltip({ text }: { text: string }) {
         style={{ wordWrap: "break-word" }}
       >
         <span
-          className="bg-gradient-to-r from-gray-700 to-violet-600 text-transparent bg-clip-text hover:cursor-pointer"
+          className="bg-gradient-to-r from-gray-700 to-violet-600 text-transparent bg-clip-text hover:cursor-pointer hover:bg-gradient-to-l transition-all ease-in-out duration-150"
           onClick={copyToClipboard}
         >
           {text}

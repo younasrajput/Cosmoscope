@@ -9,7 +9,7 @@ function LatestBlockTableContent({ block }: { block: BlockHistoryData }) {
     <>
       <div className="flex border border-white bg-white bg-opacity-50 rounded-3xl px-5 py-2 mt-2 gap-5 items-center">
         <div className="w-2/12 max-sm:w-4/12">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800 font-semibold">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800 font-semibold hover:bg-gradient-to-l transition-all ease-in-out duration-150">
             <Link to={`/blocks/${block.height}`}>
               {numberSplitter(+block.height)}
             </Link>
