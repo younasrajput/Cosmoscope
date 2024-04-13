@@ -17,7 +17,7 @@ function Navbar() {
             <li key={index} className="py-2">
               <Link
                 to={item.path}
-                className={`py-2 px-5 rounded-full transition-all ease-in-out duration-150 ${
+                className={`py-2 px-5 rounded-full transition-all ease-in-out duration-150 hover:bg-white hover:bg-opacity-70 focus:bg-opacity-100 hover:shadow-md hover:font-semibold ${
                   location.pathname === item.path &&
                   "bg-white shadow-md font-semibold"
                 }`}
