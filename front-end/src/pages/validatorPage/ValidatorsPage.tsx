@@ -7,6 +7,7 @@ import { validatorStatuses } from "../../datas/statusesData";
 import Loading from "../../components/Loading";
 import ValidatorsTableContent from "./components/ValidatorsTableContent";
 import ValidatorsTableHeader from "./components/ValidatorsTableHeader";
+import toast from "react-hot-toast";
 
 function ValidatorsPage() {
   const [data, setData] = useState<ValidatorData | null>(null);
@@ -26,11 +27,7 @@ function ValidatorsPage() {
       );
       setData(validators);
     } catch (error) {
-      const { default: Swal } = await import("sweetalert2");
-      Swal.fire({
-        title: "Error!",
-        text: "Internal server error",
-      });
+      toast.error("Internal server error");
       console.log(error);
     } finally {
       setLoading(false);

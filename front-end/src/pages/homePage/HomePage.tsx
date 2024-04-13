@@ -4,6 +4,7 @@ import TransactionsSection from "./components/TransactionsSection";
 import { fetchDataCH } from "../../services/fetchData";
 import { BlockData } from "../../types/block.types";
 import LatestBlockSection from "./components/LatestBlockSection";
+import toast from "react-hot-toast";
 
 function HomePage() {
   const [data, setData] = useState<BlockData | null>(null);
@@ -17,11 +18,12 @@ function HomePage() {
 
       setData(latestBlocks);
     } catch (error) {
-      const { default: Swal } = await import("sweetalert2");
-      Swal.fire({
-        title: "Error!",
-        text: "Internal server error",
-      });
+      // const { default: Swal } = await import("sweetalert2");
+      // Swal.fire({
+      //   title: "Error!",
+      //   text: "Internal server error",
+      // });
+      toast.error("Internal server error");
       console.log(error);
     }
   };
