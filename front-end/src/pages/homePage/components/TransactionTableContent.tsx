@@ -4,6 +4,7 @@ import { stringSimplifier } from "../../../helpers/stringHelpers";
 import { TransactionDetail } from "../../../types/transaction.types";
 import Tooltip from "../../../components/Tooltip";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
+import { Link } from "react-router-dom";
 
 function TransactionTableContent({ data }: { data: TransactionDetail }) {
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -23,7 +24,9 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
 
         {/* height */}
         <div className="w-1/12 max-lg:w-2/12 max-sm:hidden">
-          {numberSplitter(+data.height)}
+          <Link to={`/blocks/${data.height}`}>
+            {numberSplitter(+data.height)}
+          </Link>
         </div>
 
         {/* amount */}
