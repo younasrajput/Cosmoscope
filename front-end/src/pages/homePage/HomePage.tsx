@@ -12,7 +12,7 @@ function HomePage() {
   const fetchLatestBlock = async () => {
     try {
       const latestBlocks: BlockData = await fetchDataCH(
-        "base/tendermint/v1beta1/blocks/latest",
+        "cosmos/base/tendermint/v1beta1/blocks/latest",
       );
 
       setData(latestBlocks);

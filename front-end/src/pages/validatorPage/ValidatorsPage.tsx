@@ -22,7 +22,7 @@ function ValidatorsPage() {
     setLoading(true);
     try {
       const validators: ValidatorData = await fetchDataCH(
-        `staking/v1beta1/validators?status=${validatorStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
+        `cosmos/staking/v1beta1/validators?status=${validatorStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
       );
       setData(validators);
     } catch (error) {

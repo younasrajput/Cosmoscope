@@ -22,7 +22,7 @@ function ProposalsPage() {
     setLoading(true);
     try {
       const proposals: ProposalData = await fetchDataCH(
-        `gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
+        `cosmos/gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
       );
       setData(proposals);
     } catch (error) {
