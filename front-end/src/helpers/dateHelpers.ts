@@ -65,13 +65,13 @@ export function timeDifferenceCounter(dateString: string): string {
       if (seconds % 60 === 0) {
         return "1 minute ago";
       } else {
-        return `1 minute and ${seconds % 60} seconds ago`;
+        return `1 minute and a few seconds ago`;
       }
     } else {
       return `${minutes} minutes ago`;
     }
   } else {
-    return `${seconds} seconds ago`;
+    return `a few seconds ago`;
   }
 }
 
