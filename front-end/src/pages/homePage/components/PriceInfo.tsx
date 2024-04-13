@@ -25,10 +25,12 @@ function PriceInfo() {
     }
   };
 
+  const fetchInterval = 5 * 60_000; // 5 minutes
+
   useEffect(() => {
     fetchAtomInfo();
 
-    const interval = setInterval(fetchAtomInfo, 5 * 60_000); // 5 minutes
+    const interval = setInterval(fetchAtomInfo, fetchInterval);
 
     return () => clearInterval(interval);
   }, []);

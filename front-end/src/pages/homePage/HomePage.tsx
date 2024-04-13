@@ -26,10 +26,11 @@ function HomePage() {
     }
   };
 
+  const fetchInterval = 7_000; // 7 seconds
+
   useEffect(() => {
     fetchLatestBlock();
-
-    const interval = setInterval(fetchLatestBlock, 7_000); // 7 seconds
+    const interval = setInterval(fetchLatestBlock, fetchInterval);
 
     return () => clearInterval(interval);
   }, []);

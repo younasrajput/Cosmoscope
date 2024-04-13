@@ -50,7 +50,10 @@ function TransactionsSection({ data }: { data: BlockData | null }) {
         };
       });
 
-    const newDataList = dataDetail && dataDetail.concat(dataList);
+    const newDataList =
+      dataDetail &&
+      dataDetail[0]?.height !== dataList[0]?.height &&
+      dataDetail.concat(dataList);
 
     if (newDataList) {
       setDataList(newDataList);

@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { BlockData, BlockHistoryData } from "../../../types/block.types";
 import LatestBlockHeader from "./LatestBlockHeader";
 import LatestBlockTableHeader from "./LatestBlockTableHeader";
 import LatestBlockTableContent from "./LatestBlockTableContent";
 
 function LatestBlockSection({ data }: { data: BlockData | null }) {
-  const [dataList, setDataList] = useState<BlockHistoryData[] | []>([]);
+  const [dataList, setDataList] = useState<BlockHistoryData[]>([]);
 
   const setBlockHistory = async () => {
     const dataDetail = data &&
@@ -17,20 +17,20 @@ function LatestBlockSection({ data }: { data: BlockData | null }) {
         time: data.block.header.time,
       };
 
-    const newDataList = dataDetail && [dataDetail, ...dataList];
+    const newDataList = dataDetail ? [dataDetail, ...dataList] : dataList;
 
-    if (newDataList) {
-      if (newDataList.length > 25) {
-        newDataList.pop();
-      }
-
-      setDataList(newDataList);
+    if (newDataList.length > 25) {
+      newDataList.pop();
     }
+
+    setDataList(newDataList);
   };
 
   useEffect(() => {
     setBlockHistory();
   }, [data]);
+
+  const memoizedDataList = useMemo(() => dataList, [dataList]);
 
   return (
     <>
@@ -41,7 +41,7 @@ function LatestBlockSection({ data }: { data: BlockData | null }) {
 
         {/* table content */}
         <section className="max-h-[31rem] overflow-auto">
-          {dataList.map((block, index) => (
+          {memoizedDataList.map((block, index) => (
             <LatestBlockTableContent key={index} block={block} />
           ))}
         </section>

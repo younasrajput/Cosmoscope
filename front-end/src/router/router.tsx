@@ -4,13 +4,8 @@ import { lazy, Suspense } from "react";
 import Loading from "../components/Loading";
 import BaseLayout from "../layouts/BaseLayout";
 
-const HomePage = lazy(
-  () => import(/* webpackPrefetch: true */ "../pages/homePage/HomePage"),
-);
-const ProposalsPage = lazy(
-  () =>
-    import(/* webpackPrefetch: true */ "../pages/proposalPage/ProposalsPage"),
-);
+const HomePage = lazy(() => import("../pages/homePage/HomePage"));
+const ProposalsPage = lazy(() => import("../pages/proposalPage/ProposalsPage"));
 const ValidatorsPage = lazy(
   () => import("../pages/validatorPage/ValidatorsPage"),
 );
