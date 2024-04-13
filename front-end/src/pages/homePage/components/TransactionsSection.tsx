@@ -56,6 +56,7 @@ function TransactionsSection({ data }: { data: BlockData | null }) {
       dataDetail.concat(dataList);
 
     if (newDataList) {
+      newDataList.sort((a, b) => +b.height - +a.height);
       setDataList(newDataList);
 
       const limit = 40;

@@ -23,6 +23,8 @@ function LatestBlockSection({ data }: { data: BlockData | null }) {
       newDataList.pop();
     }
 
+    newDataList.sort((a, b) => +b.height - +a.height);
+
     setDataList(newDataList);
   };
 

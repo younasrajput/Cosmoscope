@@ -26,7 +26,7 @@ function HomePage() {
     }
   };
 
-  const fetchInterval = 7_000; // 7 seconds
+  const fetchInterval = 5_000; // 5 seconds
 
   useEffect(() => {
     fetchLatestBlock();
