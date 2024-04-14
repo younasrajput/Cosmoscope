@@ -18,11 +18,6 @@ function HomePage() {
 
       setData(latestBlocks);
     } catch (error) {
-      // const { default: Swal } = await import("sweetalert2");
-      // Swal.fire({
-      //   title: "Error!",
-      //   text: "Internal server error",
-      // });
       toast.error("Internal server error");
       console.log(error);
     }
