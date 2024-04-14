@@ -38,13 +38,13 @@ function AtomChart() {
 
   const fetchInterval = 5 * 60_000; // 5 minutes
 
-  useEffect(() => {
-    fetchChartData();
+  // useEffect(() => {
+  //   fetchChartData();
 
-    const interval = setInterval(fetchChartData, fetchInterval);
+  //   const interval = setInterval(fetchChartData, fetchInterval);
 
-    return () => clearInterval(interval);
-  }, [fetchInterval]);
+  //   return () => clearInterval(interval);
+  // }, [fetchInterval]);
 
   return (
     <>

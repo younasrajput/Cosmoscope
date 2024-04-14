@@ -4,9 +4,7 @@ import { BlockData } from "../../types/block.types";
 import { fetchDataCH } from "../../services/fetchData";
 import toast from "react-hot-toast";
 import Loading from "../../components/Loading";
-
 import TransactionsSection from "../homePage/components/TransactionsSection";
-
 import NoTxs from "./components/NoTxs";
 import BlockNavigator from "./components/BlockNavigator";
 import BlockHeader from "./components/BlockHeader";
@@ -25,9 +23,18 @@ function BlockPage() {
         `cosmos/base/tendermint/v1beta1/blocks/${height}`,
       );
 
+      if (block.code === 3 || block.code === 2) {
+        throw new Error("Block not found");
+      }
+      console.log(block, "ini blocknyaaa");
       setData(block);
     } catch (error) {
-      toast.error("Internal server error");
+      if (error instanceof Error && error.message === "Block not found") {
+        toast.error("Block not found");
+      } else {
+        toast.error("Internal server error");
+      }
+
       console.log(error);
     } finally {
       setLoading(false);

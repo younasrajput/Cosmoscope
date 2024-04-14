@@ -24,7 +24,7 @@ function SearchBar() {
         <input
           type="text"
           ref={searchInput}
-          placeholder="find block by height..."
+          placeholder="height/transaction"
           className="bg-transparent focus:border-none focus:outline-none px-5"
         />
         <button

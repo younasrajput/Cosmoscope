@@ -6,6 +6,7 @@ export interface BlockHistoryData {
 }
 
 export interface BlockData {
+  code?: number;
   block_id: {
     hash: string;
     parts: {
