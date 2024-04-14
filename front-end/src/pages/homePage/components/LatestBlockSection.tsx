@@ -4,15 +4,22 @@ import { BlockData, BlockHistoryData } from "../../../types/block.types";
 import LatestBlockHeader from "./LatestBlockHeader";
 import LatestBlockTableHeader from "./LatestBlockTableHeader";
 import LatestBlockTableContent from "./LatestBlockTableContent";
+import { toHex } from "@cosmjs/encoding";
+import { stringToUint8Array } from "../../../utils/stringToUint8Array";
 
 function LatestBlockSection({ data }: { data: BlockData | null }) {
   const [dataList, setDataList] = useState<BlockHistoryData[]>([]);
+
+  // making app hash
+  const hash = data && data.block.header.app_hash;
+  const convertedHash = hash && stringToUint8Array(hash);
+  const appHash = convertedHash && toHex(convertedHash).toUpperCase();
 
   const setBlockHistory = async () => {
     const dataDetail = data &&
       data.block.header.height !== dataList[0]?.height && {
         height: data.block.header.height,
-        proposer: data.block.header.proposer_address,
+        appHash: appHash || "",
         txs: data.block.data.txs.length,
         time: data.block.header.time,
       };

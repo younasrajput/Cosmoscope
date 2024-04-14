@@ -1,6 +1,6 @@
 export interface BlockHistoryData {
   height: string;
-  proposer: string;
+  appHash: string;
   txs: number;
   time: string;
 }

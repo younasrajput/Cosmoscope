@@ -3,6 +3,8 @@ import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
 import { timeFormatter } from "../../../helpers/dateHelpers";
 import { BlockHistoryData } from "../../../types/block.types";
 import { Link } from "react-router-dom";
+import { stringSimplifier } from "../../../helpers/stringHelpers";
+import Tooltip from "../../../components/Tooltip";
 
 function LatestBlockTableContent({ block }: { block: BlockHistoryData }) {
   return (
@@ -16,7 +18,10 @@ function LatestBlockTableContent({ block }: { block: BlockHistoryData }) {
           </span>
         </div>
         <div className="w-5/12 font-semibold max-md:truncate max-sm:hidden">
-          {block.proposer}
+          <span className="group relative">
+            {stringSimplifier(block.appHash, 12)}
+            <Tooltip text={block.appHash} />
+          </span>
         </div>
         <div className="w-2/12 font-semibold max-sm:w-3/12">{block.txs}</div>
         <div className="w-3/12 max-sm:w-5/12">

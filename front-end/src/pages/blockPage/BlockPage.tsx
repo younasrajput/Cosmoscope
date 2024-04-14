@@ -4,20 +4,18 @@ import { BlockData } from "../../types/block.types";
 import { fetchDataCH } from "../../services/fetchData";
 import toast from "react-hot-toast";
 import Loading from "../../components/Loading";
-import { toHex } from "@cosmjs/encoding";
+
+import TransactionsSection from "../homePage/components/TransactionsSection";
+
+import NoTxs from "./components/NoTxs";
+import BlockNavigator from "./components/BlockNavigator";
+import BlockHeader from "./components/BlockHeader";
 
 function BlockPage() {
   const { height } = useParams<{ height: string }>();
 
   const [data, setData] = useState<BlockData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [hash, setHash] = useState<string>("");
-
-  // decode transactions
-  const convertedHash =
-    hash && Uint8Array.from(atob(hash), (c) => c.charCodeAt(0));
-
-  const decodedHash = convertedHash && toHex(convertedHash);
 
   // fetch data
   const fetchBlockByHeight = async () => {
@@ -28,7 +26,6 @@ function BlockPage() {
       );
 
       setData(block);
-      setHash(block.block_id.hash);
     } catch (error) {
       toast.error("Internal server error");
       console.log(error);
@@ -39,13 +36,28 @@ function BlockPage() {
 
   useEffect(() => {
     fetchBlockByHeight();
-  }, []);
+  }, [height]);
 
   return (
     <>
-      <p>{height}</p>
-      <p>{decodedHash} ini hashnya</p>
-      {loading ? <Loading /> : data && <p>{JSON.stringify(data)}</p>}
+      {loading ? (
+        <Loading />
+      ) : (
+        data && (
+          <>
+            {/* navigation */}
+            <BlockNavigator height={data.block.header.height} />
+            {/* block header */}
+            <BlockHeader data={data} />
+            {/* transactions */}
+            {data.block.data.txs.length > 1 ? (
+              <TransactionsSection data={data} />
+            ) : (
+              <NoTxs />
+            )}
+          </>
+        )
+      )}
     </>
   );
 }

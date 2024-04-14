@@ -1,11 +1,6 @@
-import toast from "react-hot-toast";
+import { copyToClipboard } from "../utils/copyToClipboard";
 
 function Tooltip({ text }: { text: string }) {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(text);
-    toast.success("Copied to clipboard");
-  };
-
   return (
     <>
       <span
@@ -14,7 +9,7 @@ function Tooltip({ text }: { text: string }) {
       >
         <span
           className="bg-gradient-to-r from-gray-700 to-violet-600 text-transparent bg-clip-text hover:cursor-pointer "
-          onClick={copyToClipboard}
+          onClick={() => copyToClipboard(text)}
         >
           {text}
         </span>
