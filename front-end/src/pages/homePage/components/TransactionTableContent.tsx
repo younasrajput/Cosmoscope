@@ -5,21 +5,27 @@ import { TransactionDetail } from "../../../types/transaction.types";
 import Tooltip from "../../../components/Tooltip";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { Link } from "react-router-dom";
+import TxsMessage from "../../../components/TxsMessage";
 
 function TransactionTableContent({ data }: { data: TransactionDetail }) {
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
+
+  const messages = messageExtractor(data.messages);
 
   return (
     <>
       <div className="flex border border-white bg-white bg-opacity-50 rounded-3xl px-5 py-2 mt-2 gap-5 items-center font-semibold">
         {/* hash */}
         <div className="w-2/12 font-semibold max-lg:w-3/12 max-sm:w-6/12">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800 font-semibold group relative">
+          <Link
+            to={`/txs/${data.hash}`}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-violet-800 font-semibold group relative"
+          >
             {isMobile && stringSimplifier(data.hash, 4)}
             {isTablet && stringSimplifier(data.hash, 5)}
             {isDesktop && stringSimplifier(data.hash, 7)}
             <Tooltip text={data.hash} />
-          </span>
+          </Link>
         </div>
 
         {/* height */}
@@ -38,7 +44,10 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
 
         {/* message */}
         <div className="w-3/12 text-sm max-md:text-[10px] max-lg:w-4/12 max-sm:w-5/12 max-sm:text-[10px] max-sm:font-regular">
-          {messageExtractor(data.messages)}
+          <TxsMessage text={messages[0]} />{" "}
+          {messages.length > 1 && (
+            <TxsMessage text={`+${messages.length - 1}`} />
+          )}
         </div>
 
         {/* memo */}

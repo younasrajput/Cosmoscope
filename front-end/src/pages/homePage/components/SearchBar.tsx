@@ -11,14 +11,20 @@ function SearchBar() {
 
     const search = searchInput.current?.value || "";
 
-    navigate(`/blocks/${search}`);
+    if (search.length === 64) {
+      navigate(`/txs/${search}`);
+    } else if (search.length > 0) {
+      navigate(`/blocks/${search}`);
+    } else {
+      return "";
+    }
   };
 
   return (
     <>
       {" "}
       <form
-        className="rounded-full bg-white bg-opacity-50 border-white border flex items-center justify-between gap-5 p-1"
+        className="rounded-full bg-white bg-opacity-50 border-white border flex items-center justify-between gap-5 p-1 w-1/3 ml-auto"
         onSubmit={handleSearch}
       >
         <input
@@ -28,7 +34,7 @@ function SearchBar() {
           className="bg-transparent focus:border-none focus:outline-none px-5"
         />
         <button
-          className="bg-white rounded-full w-10 h-10 shadow-md"
+          className="bg-white rounded-full w-7 h-7 shadow-md active:shadow-none"
           type="submit"
         >
           <FontAwesomeIcon icon={faSearch} />

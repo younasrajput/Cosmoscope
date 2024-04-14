@@ -1,8 +1,8 @@
 import { numberSplitter } from "../../../helpers/numberHelpers";
 import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
 import { BlockData } from "../../../types/block.types";
-import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 function LatestBlockHeader({ data }: { data: BlockData | null }) {
   return (
@@ -12,7 +12,6 @@ function LatestBlockHeader({ data }: { data: BlockData | null }) {
           <h1 className="font-tenorSans text-3xl max-sm:text-xl max-md:text-2xl">
             Latest Block
           </h1>
-
           <SearchBar />
         </div>
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BlockData } from "../../types/block.types";
@@ -26,7 +27,7 @@ function BlockPage() {
       if (block.code === 3 || block.code === 2) {
         throw new Error("Block not found");
       }
-      console.log(block, "ini blocknyaaa");
+
       setData(block);
     } catch (error) {
       if (error instanceof Error && error.message === "Block not found") {
@@ -46,7 +47,7 @@ function BlockPage() {
   }, [height]);
 
   return (
-    <>
+    <main className="mx-10">
       {loading ? (
         <Loading />
       ) : (
@@ -57,15 +58,18 @@ function BlockPage() {
             {/* block header */}
             <BlockHeader data={data} />
             {/* transactions */}
-            {data.block.data.txs.length > 1 ? (
-              <TransactionsSection data={data} />
+            {data.block.data.txs.length > 0 ? (
+              <TransactionsSection
+                data={data}
+                txsLimit={data.block.data.txs.length}
+              />
             ) : (
               <NoTxs />
             )}
           </>
         )
       )}
-    </>
+    </main>
   );
 }
 

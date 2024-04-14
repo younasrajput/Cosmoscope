@@ -27,17 +27,16 @@ function BlockHeader({ data }: { data: BlockData }) {
 
         <div className="mt-5 text-md">
           {/* block hash */}
-          <div className="flex gap-10  my-1">
-            <p className="w-1/6">block hash</p>
-            <p className="font-semibold">
-              {blockHash}
-              <span
-                className="ml-1 hover:cursor-pointer text-gray-500"
-                onClick={() => copyToClipboard(blockHash)}
-              >
-                <FontAwesomeIcon icon={faCopy} size="sm" />
-              </span>
-            </p>
+          <div className="flex my-1">
+            <p className="w-1/6 mr-10">block hash</p>
+
+            <span className="font-semibold max-lg:truncate">{blockHash}</span>
+            <span
+              className="ml-1 hover:cursor-pointer text-gray-500 "
+              onClick={() => copyToClipboard(blockHash)}
+            >
+              <FontAwesomeIcon icon={faCopy} size="sm" />
+            </span>
           </div>
 
           {/* block time */}

@@ -10,18 +10,24 @@ export function stringSimplifier(text: string, len: number = 5): string {
   return `${startText}...${endText}`;
 }
 
-export function messageExtractor(messagesArray: TransactionMessage[]): string {
-  return messagesArray.reduce((acc, message) => {
+export function messageExtractor(
+  messagesArray: TransactionMessage[],
+): string[] {
+  const messages: string[] = [];
+
+  messagesArray.forEach((message) => {
     const splittedMessage = message.typeUrl.split(".");
     const finalMessage = splittedMessage[splittedMessage.length - 1].replace(
       "Msg",
       "",
     );
 
-    if (acc.includes(finalMessage)) return acc;
+    if (!messages.includes(finalMessage)) {
+      messages.push(finalMessage);
+    }
+  });
 
-    return acc ? [acc, finalMessage].join(", ") : finalMessage;
-  }, "");
+  return messages;
 }
 
 export function proposalStatusSplitter(status: string): string {

@@ -5,6 +5,7 @@ import { fetchDataCH } from "../../services/fetchData";
 import { BlockData } from "../../types/block.types";
 import LatestBlockSection from "./components/LatestBlockSection";
 import toast from "react-hot-toast";
+import SearchBar from "./components/SearchBar";
 
 function HomePage() {
   const [data, setData] = useState<BlockData | null>(null);
@@ -36,6 +37,7 @@ function HomePage() {
     <>
       <main className="min-h-screen mx-10">
         <InfoSection />
+
         <LatestBlockSection data={data} />
         <TransactionsSection data={data} />
       </main>

@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loading from "../components/Loading";
 import BaseLayout from "../layouts/BaseLayout";
+import TransactionPage from "../pages/transactionPage/TransactionPage";
 
 const HomePage = lazy(() => import("../pages/homePage/HomePage"));
 const ProposalsPage = lazy(() => import("../pages/proposalPage/ProposalsPage"));
@@ -47,6 +48,7 @@ export const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      { path: "/txs/:hash", element: <TransactionPage /> },
     ],
   },
 ]);

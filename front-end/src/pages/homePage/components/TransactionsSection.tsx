@@ -7,7 +7,13 @@ import { BlockData } from "../../../types/block.types";
 import TransactionTableHeader from "./TransactionTableHeader";
 import TransactionTableContent from "./TransactionTableContent";
 
-function TransactionsSection({ data }: { data: BlockData | null }) {
+function TransactionsSection({
+  data,
+  txsLimit,
+}: {
+  data: BlockData | null;
+  txsLimit?: number;
+}) {
   const txs = data && data.block.data.txs;
 
   // decode transactions
@@ -50,16 +56,19 @@ function TransactionsSection({ data }: { data: BlockData | null }) {
         };
       });
 
+    const isNotFromTheSameHeight: boolean =
+      dataDetail[0]?.height != dataList[0]?.height;
+
     const newDataList =
-      dataDetail &&
-      dataDetail[0]?.height !== dataList[0]?.height &&
-      dataDetail.concat(dataList);
+      dataDetail.length > 0 && isNotFromTheSameHeight
+        ? [...dataDetail, ...dataList]
+        : dataList;
 
     if (newDataList) {
       newDataList.sort((a, b) => +b.height - +a.height);
       setDataList(newDataList);
 
-      const limit = 40;
+      const limit = txsLimit || 40;
       setDataList(newDataList.slice(0, limit));
     }
   };

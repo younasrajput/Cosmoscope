@@ -13,7 +13,7 @@ function BlockNavigator({ height }: { height: string }) {
         <div className="flex p-1 rounded-full bg-white bg-opacity-30 border border-white ml-auto">
           <Link
             to={`/blocks/${+height - 1}`}
-            className="rounded-full py-2 pl-5 pr-7 font-semibold hover:bg-white hover:shadow-md transition-all ease-in-out duration-150 group"
+            className="rounded-full py-2 pl-5 pr-7 font-semibold hover:bg-white hover:shadow-md active:shadow-none transition-all ease-in-out duration-150 group"
           >
             <div className="flex items-center gap-5">
               <FontAwesomeIcon
@@ -29,7 +29,7 @@ function BlockNavigator({ height }: { height: string }) {
           </Link>
           <Link
             to={`/blocks/${+height + 1}`}
-            className="rounded-full py-2 pr-5 pl-7 font-semibold hover:bg-white hover:shadow-md transition-all ease-in-out duration-150 group"
+            className="rounded-full py-2 pr-5 pl-7 font-semibold hover:bg-white hover:shadow-md active:shadow-none transition-all ease-in-out duration-150 group"
           >
             <div className="flex items-center gap-5">
               <span className="flex-col flex text-left">
