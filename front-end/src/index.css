@@ -2,27 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Swal customization */
-.swal2-title {
-  color: #0f172a;
-  font-weight: 800;
-}
-
-.swal2-confirm {
-  background-color: #a78bfa !important;
-  color: white !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 25px !important;
-}
-.swal2-cancel {
-  border-radius: 25px !important;
-}
-
-.swal2-popup {
-  border-radius: 25px !important;
-}
-
 select {
   -webkit-appearance: none;
   background-image: linear-gradient(45deg, transparent 50%, black 50%),

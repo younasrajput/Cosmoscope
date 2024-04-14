@@ -2,6 +2,7 @@ import { numberSplitter } from "../../../helpers/numberHelpers";
 import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
 import { BlockData } from "../../../types/block.types";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router-dom";
 
 function LatestBlockHeader({ data }: { data: BlockData | null }) {
   return (
@@ -19,9 +20,13 @@ function LatestBlockHeader({ data }: { data: BlockData | null }) {
         <div className="flex mt-1 justify-between">
           <p>
             Height:{" "}
-            <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-700 bg-clip-text">
-              {data && numberSplitter(+data?.block.header.height)}
-            </span>
+            {data && (
+              <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-700 bg-clip-text hover:bg-gradient-to-l transition-all ease-in-out duration-150">
+                <Link to={`/blocks/${data.block.header.height}`}>
+                  {numberSplitter(+data?.block.header.height)}
+                </Link>
+              </span>
+            )}
           </p>
 
           {/* blocktime */}

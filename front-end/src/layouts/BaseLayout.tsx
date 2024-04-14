@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Logo from "./components/Logo";
 import Footer from "./components/Footer";
+import { Toaster } from "react-hot-toast";
 
 function BaseLayout() {
   return (
@@ -13,6 +14,7 @@ function BaseLayout() {
         <Navbar />
 
         <Outlet />
+        <Toaster position="top-right" />
 
         <Footer />
       </div>

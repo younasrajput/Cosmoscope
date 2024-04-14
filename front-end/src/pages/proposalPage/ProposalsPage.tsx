@@ -7,6 +7,7 @@ import ProposalsTableHeader from "./components/ProposalsTableHeader";
 import ProposalsTableContent from "./components/ProposalsTableContent";
 import PageHeader from "../../components/PageHeader";
 import { proposalStatuses } from "../../datas/statusesData";
+import toast from "react-hot-toast";
 
 function ProposalsPage() {
   const [data, setData] = useState<ProposalData | null>(null);
@@ -22,15 +23,11 @@ function ProposalsPage() {
     setLoading(true);
     try {
       const proposals: ProposalData = await fetchDataCH(
-        `gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
+        `cosmos/gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
       );
       setData(proposals);
     } catch (error) {
-      const { default: Swal } = await import("sweetalert2");
-      Swal.fire({
-        title: "Error!",
-        text: "Internal server error",
-      });
+      toast.error("Internal server error");
       console.log(error);
     } finally {
       setLoading(false);
