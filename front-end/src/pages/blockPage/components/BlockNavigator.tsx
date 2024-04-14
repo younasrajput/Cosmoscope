@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 function BlockNavigator({ height }: { height: string }) {
   return (
     <>
-      <div className="flex">
-        <div className="flex p-1 rounded-full bg-white bg-opacity-30 border border-white ml-auto">
+      <div className="flex justify-between">
+        <div className="flex p-1 rounded-full bg-white bg-opacity-30 border border-white">
           <Link
             to={`/blocks/${+height - 1}`}
             className="rounded-full py-2 pl-5 pr-7 font-semibold hover:bg-white hover:shadow-md active:shadow-none transition-all ease-in-out duration-150 group"
@@ -27,6 +27,9 @@ function BlockNavigator({ height }: { height: string }) {
               </span>
             </div>
           </Link>
+        </div>
+
+        <div className="flex p-1 rounded-full bg-white bg-opacity-30 border border-white">
           <Link
             to={`/blocks/${+height + 1}`}
             className="rounded-full py-2 pr-5 pl-7 font-semibold hover:bg-white hover:shadow-md active:shadow-none transition-all ease-in-out duration-150 group"

@@ -27,21 +27,31 @@ function BlockHeader({ data }: { data: BlockData }) {
 
         <div className="mt-5 text-md">
           {/* block hash */}
-          <div className="flex my-1">
-            <p className="w-1/6 mr-10">block hash</p>
+          <div className="flex my-1 max-md:flex-col max-md:my-3">
+            <p className="w-1/6 mr-10 max-md:w-full">
+              block hash
+              <span className="md:hidden text-gray-500">
+                {" "}
+                <FontAwesomeIcon icon={faCopy} size="sm" />
+              </span>
+            </p>
 
             <span className="font-semibold max-lg:truncate">{blockHash}</span>
             <span
               className="ml-1 hover:cursor-pointer text-gray-500 "
               onClick={() => copyToClipboard(blockHash)}
             >
-              <FontAwesomeIcon icon={faCopy} size="sm" />
+              <FontAwesomeIcon
+                icon={faCopy}
+                size="sm"
+                className="max-md:hidden"
+              />
             </span>
           </div>
 
           {/* block time */}
-          <div className="flex gap-10 my-1">
-            <p className="w-1/6">block time</p>
+          <div className="flex my-1 max-md:flex-col max-md:my-3">
+            <p className="w-1/6 mr-10 max-md:w-full">block time</p>
             <p className="font-semibold">
               {timeDifferenceCounter(data.block.header.time)}{" "}
               <span>({timeFormatter(data.block.header.time)})</span>
@@ -49,14 +59,14 @@ function BlockHeader({ data }: { data: BlockData }) {
           </div>
 
           {/* chain id */}
-          <div className="flex gap-10 my-1">
-            <p className="w-1/6">chain id</p>
+          <div className="flex my-1 max-md:flex-col max-md:my-3">
+            <p className="w-1/6 mr-10 max-md:w-full">chain id</p>
             <p className="font-semibold">{data.block.header.chain_id}</p>
           </div>
 
           {/* number of transactions */}
-          <div className="flex gap-10  my-1">
-            <p className="w-1/6">number of tx</p>
+          <div className="flex  my-1 max-md:flex-col max-md:my-3">
+            <p className="w-1/6 mr-10 max-md:w-full">number of tx</p>
             <p className="font-semibold">{data.block.data.txs.length}</p>
           </div>
         </div>
