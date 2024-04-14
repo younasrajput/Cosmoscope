@@ -24,7 +24,7 @@ function SearchBar() {
     <>
       {" "}
       <form
-        className="rounded-full bg-white bg-opacity-50 border-white border flex items-center justify-between gap-5 p-1 w-1/3 ml-auto"
+        className="rounded-full bg-white bg-opacity-50 border-white border flex items-center justify-between gap-5 p-1 w-1/3 max-lg:w-1/2 max-md:w-full ml-auto"
         onSubmit={handleSearch}
       >
         <input
