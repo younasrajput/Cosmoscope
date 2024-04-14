@@ -30,6 +30,16 @@ export function messageExtractor(
   return messages;
 }
 
+export function messageFormatter(message: string): string {
+  const splittedMessage = message.split(".");
+  const finalMessage = splittedMessage[splittedMessage.length - 1].replace(
+    "Msg",
+    "",
+  );
+
+  return finalMessage;
+}
+
 export function proposalStatusSplitter(status: string): string {
   switch (status) {
     case "PROPOSAL_STATUS_PASSED":

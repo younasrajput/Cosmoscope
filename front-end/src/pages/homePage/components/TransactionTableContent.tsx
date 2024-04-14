@@ -5,7 +5,7 @@ import { TransactionDetail } from "../../../types/transaction.types";
 import Tooltip from "../../../components/Tooltip";
 import { useMediaQuery } from "../../../hooks/useMediaQuery";
 import { Link } from "react-router-dom";
-import TxsMessage from "../../../components/TxsMessage";
+import TxsMessage from "./TxsMessage";
 
 function TransactionTableContent({ data }: { data: TransactionDetail }) {
   const { isMobile, isTablet, isDesktop } = useMediaQuery();
@@ -59,7 +59,7 @@ function TransactionTableContent({ data }: { data: TransactionDetail }) {
               <Tooltip text={data.memo} />
             </span>
           ) : (
-            <span className="text-gray-400 italic font-light">
+            <span className="text-gray-400 italic font-light text-xs">
               transaction's memo
             </span>
           )}

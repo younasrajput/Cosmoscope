@@ -6,7 +6,7 @@ export interface TransactionData {
         "@type": string;
         from_address: string;
         to_address: string;
-        amount: { denom: string; amount: string }[];
+        amount: { denom: string; amount: string };
       }[];
       memo: string;
       timeout_height: string;
@@ -59,6 +59,15 @@ export interface TransactionData {
       attributes: { key: string; value: string; index?: boolean }[];
     }[];
   };
+}
+
+export interface MessageType {
+  "@type": string;
+  amount: {
+    denom: string;
+    amount: string;
+  };
+  [key: string]: string | { denom: string; amount: string } | undefined;
 }
 
 export interface TransactionDetail {
