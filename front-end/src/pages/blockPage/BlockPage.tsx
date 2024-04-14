@@ -4,7 +4,6 @@ import { BlockData } from "../../types/block.types";
 import { fetchDataCH } from "../../services/fetchData";
 import toast from "react-hot-toast";
 import Loading from "../../components/Loading";
-import { hashTx } from "../../utils/hash";
 import { toHex } from "@cosmjs/encoding";
 
 function BlockPage() {
