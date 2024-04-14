@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { timeDifferenceCounter } from "../../../helpers/dateHelpers";
 import { numberSplitter } from "../../../helpers/numberHelpers";
+import toast from "react-hot-toast";
 
 function PriceInfo() {
   const [data, setData] = useState<AtomData | null>(null);
@@ -16,11 +17,7 @@ function PriceInfo() {
       );
       setData(atomInfo[0] as AtomData);
     } catch (error) {
-      const { default: Swal } = await import("sweetalert2");
-      Swal.fire({
-        title: "Error!",
-        text: "Internal server error",
-      });
+      toast.error("Internal server error");
       console.log(error);
     }
   };

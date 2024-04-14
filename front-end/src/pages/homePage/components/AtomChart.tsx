@@ -8,6 +8,7 @@ import { timeFormatter } from "../../../helpers/dateHelpers";
 import Loading from "../../../components/Loading";
 import { AreaChart } from "@tremor/react";
 import { usdFormatter } from "../../../helpers/numberHelpers";
+import toast from "react-hot-toast";
 
 function AtomChart() {
   const [data, setData] = useState<ExtractedChartData[] | null>(null);
@@ -28,11 +29,7 @@ function AtomChart() {
 
       setData(chartData);
     } catch (error) {
-      const { default: Swal } = await import("sweetalert2");
-      Swal.fire({
-        title: "Error!",
-        text: "Internal server error",
-      });
+      toast.error("Internal server error");
       console.log(error);
     } finally {
       setLoading(false);
