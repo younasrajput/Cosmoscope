@@ -39,7 +39,7 @@ function MessageData({
               <p className="w-1/6 mr-10 max-md:w-full">
                 {key.split("_").join(" ")}
               </p>
-              <p className="font-semibold truncate">
+              <p className="font-semibold md:truncate max-md:overflow-auto">
                 {String(message[key as keyof MessageType])}
               </p>
             </div>

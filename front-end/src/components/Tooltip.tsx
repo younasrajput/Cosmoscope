@@ -4,7 +4,7 @@ function Tooltip({ text }: { text: string }) {
   return (
     <>
       <span
-        className="z-10 left-5 top-3 absolute px-5 py-1.5 rounded-2xl bg-violet-300 text-xs text-gray-700 border border-violet-400 opacity-0 group-hover:opacity-100 group-hover:bg-opacity-70 transition-all ease-in-out duration-300 max-md:text-[10px] max-lg:left-0 max-lg:max-w-64"
+        className={`z-10 left-5 top-3 absolute px-5 py-1.5 rounded-2xl bg-violet-300 text-xs text-gray-700 border border-violet-400 opacity-0 group-hover:opacity-100 group-hover:bg-opacity-70 transition-all ease-in-out duration-300 max-md:text-[10px] max-lg:left-0 max-lg:max-w-64`}
         style={{ wordWrap: "break-word" }}
       >
         <span
