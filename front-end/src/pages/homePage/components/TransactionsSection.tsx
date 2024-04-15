@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { DecodedTxRaw, decodeTxRaw } from "@cosmjs/proto-signing";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { hashTx } from "../../../utils/hash";
 import { TransactionDetail } from "../../../types/transaction.types";
 import { BlockData } from "../../../types/block.types";
@@ -77,6 +77,8 @@ function TransactionsSection({
     setTransactionsHistory();
   }, [txs]);
 
+  const memoizedDataList = useMemo(() => dataList, [dataList]);
+
   return (
     <>
       <section className="bg-white bg-opacity-50 px-10 py-5 rounded-3xl border border-white w-full mt-10 max-sm:px-5 max-md:py-7 max-sm:py-5">
@@ -88,10 +90,9 @@ function TransactionsSection({
       <TransactionTableHeader />
 
       <section className="max-h-[31rem] overflow-auto mb-10">
-        {dataList &&
-          dataList.map((data, index) => (
-            <TransactionTableContent key={index} data={data} />
-          ))}
+        {memoizedDataList.map((data, index) => (
+          <TransactionTableContent key={index} data={data} />
+        ))}
       </section>
     </>
   );
