@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { fetchDataCH } from "../../services/fetchData";
 import PageHeader from "../../components/PageHeader";
@@ -18,23 +17,23 @@ function ValidatorsPage() {
   const [pageOffset, setPageOffset] = useState(0);
   const pageLimit = 15;
 
-  // fetch data
-  const fetchValidators = async () => {
-    setLoading(true);
-    try {
-      const validators: ValidatorData = await fetchDataCH(
-        `cosmos/staking/v1beta1/validators?status=${validatorStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
-      );
-      setData(validators);
-    } catch (error) {
-      toast.error("Internal server error");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    // fetch data
+    const fetchValidators = async () => {
+      setLoading(true);
+      try {
+        const validators: ValidatorData = await fetchDataCH(
+          `cosmos/staking/v1beta1/validators?status=${validatorStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
+        );
+        setData(validators);
+      } catch (error) {
+        toast.error("Internal server error");
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchValidators();
   }, [validatorStatus, pageOffset]);
 

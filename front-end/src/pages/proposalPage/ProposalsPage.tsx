@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { fetchDataCH } from "../../services/fetchData";
 import Loading from "../../components/Loading";
@@ -18,23 +17,23 @@ function ProposalsPage() {
   const [pageOffset, setPageOffset] = useState(0);
   const pageLimit = 15;
 
-  // fetch data
-  const fetchProposals = async () => {
-    setLoading(true);
-    try {
-      const proposals: ProposalData = await fetchDataCH(
-        `cosmos/gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
-      );
-      setData(proposals);
-    } catch (error) {
-      toast.error("Internal server error");
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    // fetch data
+    const fetchProposals = async () => {
+      setLoading(true);
+      try {
+        const proposals: ProposalData = await fetchDataCH(
+          `cosmos/gov/v1beta1/proposals?proposal_status=${proposalStatus}&pagination.limit=${pageLimit}&pagination.offset=${pageOffset}&pagination.reverse=true`,
+        );
+        setData(proposals);
+      } catch (error) {
+        toast.error("Internal server error");
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchProposals();
   }, [proposalStatus, pageOffset]);
 

@@ -15,30 +15,33 @@ function TransactionsSection({
   txsLimit?: number;
 }) {
   const txs = data && data.block.data.txs;
-
   // decode transactions
   const convertedTxs =
     txs && txs.map((tx) => Uint8Array.from(atob(tx), (c) => c.charCodeAt(0)));
 
-  const decodedTxs = [] as { hash: string; tx: DecodedTxRaw; height: string }[];
-
-  const decodeTransactions = (txsArray: Uint8Array[]) => {
-    if (data) {
-      txsArray.forEach((tx: Uint8Array) => {
-        decodedTxs.push({
-          hash: hashTx(tx),
-          tx: decodeTxRaw(tx),
-          height: data.block.header.height,
-        });
-      });
-    }
-  };
+  const decodedTxs = [] as {
+    hash: string;
+    tx: DecodedTxRaw;
+    height: string;
+  }[];
 
   useEffect(() => {
+    const decodeTransactions = (txsArray: Uint8Array[]) => {
+      if (data) {
+        txsArray.forEach((tx: Uint8Array) => {
+          decodedTxs.push({
+            hash: hashTx(tx),
+            tx: decodeTxRaw(tx),
+            height: data.block.header.height,
+          });
+        });
+      }
+    };
+
     if (convertedTxs) {
       decodeTransactions(convertedTxs);
     }
-  }, [txs]);
+  }, [data, txs, txsLimit]);
 
   // extract transactions into list
   const [dataList, setDataList] = useState<TransactionDetail[] | []>([]);

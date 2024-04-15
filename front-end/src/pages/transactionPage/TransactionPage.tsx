@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchDataCH } from "../../services/fetchData";
@@ -15,33 +14,36 @@ function TransactionPage() {
   const [data, setData] = useState<TransactionData | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // fetch data
-  const fetchTransaction = async () => {
-    setLoading(true);
-    try {
-      const transaction: TransactionData = await fetchDataCH(
-        `cosmos/tx/v1beta1/txs/${hash}`,
-      );
-
-      if (transaction.code === 3 || transaction.code === 2) {
-        throw new Error("Transaction not found");
-      }
-
-      setData(transaction);
-    } catch (error) {
-      if (error instanceof Error && error.message === "Transaction not found") {
-        toast.error("Transaction not found");
-      } else {
-        toast.error("Internal server error");
-      }
-
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    // fetch data
+    const fetchTransaction = async () => {
+      setLoading(true);
+      try {
+        const transaction: TransactionData = await fetchDataCH(
+          `cosmos/tx/v1beta1/txs/${hash}`,
+        );
+
+        if (transaction.code === 3 || transaction.code === 2) {
+          throw new Error("Transaction not found");
+        }
+
+        setData(transaction);
+      } catch (error) {
+        if (
+          error instanceof Error &&
+          error.message === "Transaction not found"
+        ) {
+          toast.error("Transaction not found");
+        } else {
+          toast.error("Internal server error");
+        }
+
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchTransaction();
   }, [hash]);
 

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState, useMemo } from "react";
 import { BlockData, BlockHistoryData } from "../../../types/block.types";
 import LatestBlockHeader from "./LatestBlockHeader";
@@ -11,33 +10,34 @@ function LatestBlockSection({ data }: { data: BlockData | null }) {
   const [dataList, setDataList] = useState<BlockHistoryData[]>([]);
 
   // making app hash
-  const hash = data && data.block.header.app_hash;
-  const convertedHash = hash && stringToUint8Array(hash);
-  const appHash = convertedHash && toHex(convertedHash).toUpperCase();
-
-  const setBlockHistory = async () => {
-    const dataDetail = data &&
-      data.block.header.height !== dataList[0]?.height && {
-        height: data.block.header.height,
-        appHash: appHash || "",
-        txs: data.block.data.txs.length,
-        time: data.block.header.time,
-      };
-
-    const newDataList = dataDetail ? [dataDetail, ...dataList] : dataList;
-
-    if (newDataList.length > 25) {
-      newDataList.pop();
-    }
-
-    newDataList.sort((a, b) => +b.height - +a.height);
-
-    setDataList(newDataList);
-  };
 
   useEffect(() => {
+    const hash = data && data.block.header.app_hash;
+    const convertedHash = hash && stringToUint8Array(hash);
+    const appHash = convertedHash && toHex(convertedHash).toUpperCase();
+
+    const setBlockHistory = async () => {
+      const dataDetail = data &&
+        data.block.header.height !== dataList[0]?.height && {
+          height: data.block.header.height,
+          appHash: appHash || "",
+          txs: data.block.data.txs.length,
+          time: data.block.header.time,
+        };
+
+      const newDataList = dataDetail ? [dataDetail, ...dataList] : dataList;
+
+      if (newDataList.length > 25) {
+        newDataList.pop();
+      }
+
+      newDataList.sort((a, b) => +b.height - +a.height);
+
+      setDataList(newDataList);
+    };
+
     setBlockHistory();
-  }, [data]);
+  }, [data, dataList]);
 
   const memoizedDataList = useMemo(() => dataList, [dataList]);
 

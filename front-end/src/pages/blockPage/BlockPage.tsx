@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BlockData } from "../../types/block.types";
@@ -16,33 +15,33 @@ function BlockPage() {
   const [data, setData] = useState<BlockData | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // fetch data
-  const fetchBlockByHeight = async () => {
-    setLoading(true);
-    try {
-      const block: BlockData = await fetchDataCH(
-        `cosmos/base/tendermint/v1beta1/blocks/${height}`,
-      );
-
-      if (block.code === 3 || block.code === 2) {
-        throw new Error("Block not found");
-      }
-
-      setData(block);
-    } catch (error) {
-      if (error instanceof Error && error.message === "Block not found") {
-        toast.error("Block not found");
-      } else {
-        toast.error("Internal server error");
-      }
-
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    // fetch data
+    const fetchBlockByHeight = async () => {
+      setLoading(true);
+      try {
+        const block: BlockData = await fetchDataCH(
+          `cosmos/base/tendermint/v1beta1/blocks/${height}`,
+        );
+
+        if (block.code === 3 || block.code === 2) {
+          throw new Error("Block not found");
+        }
+
+        setData(block);
+      } catch (error) {
+        if (error instanceof Error && error.message === "Block not found") {
+          toast.error("Block not found");
+        } else {
+          toast.error("Internal server error");
+        }
+
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchBlockByHeight();
   }, [height]);
 

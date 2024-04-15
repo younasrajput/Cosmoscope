@@ -9,24 +9,25 @@ import toast from "react-hot-toast";
 function HomePage() {
   const [data, setData] = useState<BlockData | null>(null);
 
-  // fetch data
-  const fetchLatestBlock = async () => {
-    try {
-      const latestBlocks: BlockData = await fetchDataCH(
-        "cosmos/base/tendermint/v1beta1/blocks/latest",
-      );
-
-      setData(latestBlocks);
-    } catch (error) {
-      toast.error("Internal server error");
-      console.log(error);
-    }
-  };
-
   const fetchInterval = 5_000; // 5 seconds
 
   useEffect(() => {
+    // fetch data
+    const fetchLatestBlock = async () => {
+      try {
+        const latestBlocks: BlockData = await fetchDataCH(
+          "cosmos/base/tendermint/v1beta1/blocks/latest",
+        );
+
+        setData(latestBlocks);
+      } catch (error) {
+        toast.error("Internal server error");
+        console.log(error);
+      }
+    };
+
     fetchLatestBlock();
+
     const interval = setInterval(fetchLatestBlock, fetchInterval);
 
     return () => clearInterval(interval);
