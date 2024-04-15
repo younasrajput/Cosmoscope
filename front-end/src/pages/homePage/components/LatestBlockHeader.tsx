@@ -20,7 +20,7 @@ function LatestBlockHeader({ data }: { data: BlockData | null }) {
           <p>
             Height:{" "}
             {data && (
-              <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-700 bg-clip-text hover:bg-gradient-to-l transition-all ease-in-out duration-150">
+              <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-600 bg-clip-text hover:bg-gradient-to-l transition-all ease-in-out duration-150">
                 <Link to={`/blocks/${data.block.header.height}`}>
                   {numberSplitter(+data?.block.header.height)}
                 </Link>
@@ -31,7 +31,7 @@ function LatestBlockHeader({ data }: { data: BlockData | null }) {
           {/* blocktime */}
           <p className="max-sm:hidden">
             Block Time:{" "}
-            <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-700 bg-clip-text">
+            <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-600 bg-clip-text">
               {data && timeDifferenceCounter(data?.block.header.time)}
             </span>
           </p>
@@ -39,7 +39,7 @@ function LatestBlockHeader({ data }: { data: BlockData | null }) {
           {/* chain id */}
           <p>
             Chain ID:{" "}
-            <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-700 bg-clip-text">
+            <span className="font-semibold text-md text-transparent bg-gradient-to-r from-gray-700 to-violet-600 bg-clip-text">
               {data && data?.block.header.chain_id}
             </span>
           </p>

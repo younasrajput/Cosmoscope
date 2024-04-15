@@ -15,7 +15,7 @@ function MessageData({
 
         <h2 className="text-lg">
           <span>{index + 1}. </span>
-          <span className="bg-gradient-to-r from-gray-700 to-violet-700 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-gray-700 to-violet-600 bg-clip-text text-transparent">
             {messageFormatter(message["@type"])}
           </span>
         </h2>

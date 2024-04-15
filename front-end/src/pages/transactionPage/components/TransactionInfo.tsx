@@ -87,7 +87,7 @@ function TransactionInfo({ data }: { data: TransactionData | null }) {
             <p className="font-semibold">
               <Link
                 to={`/blocks/${data?.tx_response.height}`}
-                className="bg-gradient-to-r from-gray-700 to-violet-700 text-transparent bg-clip-text hover:bg-gradient-to-l transition-all duration-150 ease-in-out"
+                className="bg-gradient-to-r from-gray-700 to-violet-600 text-transparent bg-clip-text hover:bg-gradient-to-l transition-all duration-150 ease-in-out"
               >
                 {numberSplitter((data && +data?.tx_response.height) || 0)}
               </Link>
