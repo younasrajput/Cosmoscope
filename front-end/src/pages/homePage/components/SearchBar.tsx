@@ -2,6 +2,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { removeDots } from "../../../helpers/stringHelpers";
 
 function SearchBar() {
   const searchInput = useRef<HTMLInputElement>(null);
@@ -9,7 +10,7 @@ function SearchBar() {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const search = searchInput.current?.value || "";
+    const search = removeDots(searchInput.current?.value || "");
 
     if (search.length === 64) {
       navigate(`/txs/${search}`);

@@ -81,3 +81,14 @@ export function validatorStatusSplitter(status: string): string {
       return "Unknown Status";
   }
 }
+
+export function removeDots(inputString: string): string {
+  if (inputString.includes(".")) {
+    const stringArray = inputString.split(".");
+    const stringWithoutDots = stringArray.join("");
+
+    return stringWithoutDots;
+  } else {
+    return inputString;
+  }
+}
