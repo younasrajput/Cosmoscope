@@ -28,9 +28,13 @@ function PageStatus({
           }}
           defaultValue={pageStatus}
         >
-          {statuses.map((status, index) => {
+          {statuses.map((status) => {
             return (
-              <option key={index} value={status.value} label={status.label}>
+              <option
+                key={status.value}
+                value={status.value}
+                label={status.label}
+              >
                 {status.label}
               </option>
             );

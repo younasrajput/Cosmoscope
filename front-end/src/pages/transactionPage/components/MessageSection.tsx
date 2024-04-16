@@ -13,7 +13,11 @@ function MessageSection({ data }: { data: TransactionData | null }) {
       <section>
         {data &&
           data.tx.body.messages.map((message, index) => (
-            <MessageData message={message} key={index} index={index} />
+            <MessageData
+              message={message}
+              key={message["@type"]}
+              index={index}
+            />
           ))}
       </section>
     </>

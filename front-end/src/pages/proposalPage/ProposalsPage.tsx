@@ -59,8 +59,11 @@ function ProposalsPage() {
             <Loading />
           ) : (
             data &&
-            data.proposals.map((proposal, index) => (
-              <ProposalsTableContent key={index} proposal={proposal} />
+            data.proposals.map((proposal) => (
+              <ProposalsTableContent
+                key={proposal.proposal_id}
+                proposal={proposal}
+              />
             ))
           )}
         </section>

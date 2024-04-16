@@ -50,8 +50,8 @@ function LatestBlockSection({ data }: { data: BlockData | null }) {
 
         {/* table content */}
         <section className="max-h-[31rem] overflow-auto">
-          {memoizedDataList.map((block, index) => (
-            <LatestBlockTableContent key={index} block={block} />
+          {memoizedDataList.map((block) => (
+            <LatestBlockTableContent key={block.height} block={block} />
           ))}
         </section>
       </section>

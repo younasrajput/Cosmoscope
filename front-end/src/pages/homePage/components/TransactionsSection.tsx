@@ -93,8 +93,8 @@ function TransactionsSection({
       <TransactionTableHeader />
 
       <section className="max-h-[31rem] overflow-auto mb-10">
-        {memoizedDataList.map((data, index) => (
-          <TransactionTableContent key={index} data={data} />
+        {memoizedDataList.map((data) => (
+          <TransactionTableContent key={data.hash} data={data} />
         ))}
       </section>
     </>
