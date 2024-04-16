@@ -9,7 +9,7 @@ access the cosmoscope here: [**https://cosmoscope.vercel.app**](https://cosmosco
 ## Features
 
 - **Track ATOM Price:** View the current price of ATOM and its historical price graph.
-- **Explore Blocks and Transactions:** Seamlessly navigate and analyze the latest blocks and transactions occurring on the Cosmos Network.
+- **Explore Blocks and Transactions:** Seamlessly navigate and analyze the latest blocks and transactions occurring on the Cosmos Network. Including the ability to search for specific transactions or blocks.
 - **Validator & Proposal Insights:** Gain valuable insights into validators and proposals.
 - **Responsive Design:** Enjoy a user-friendly experience across various devices, with an interface that adapts to your screen size.
 
