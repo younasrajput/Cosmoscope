@@ -31,12 +31,13 @@ function SearchBar() {
         <input
           type="text"
           ref={searchInput}
-          placeholder="height/transaction"
+          placeholder="block height/txs hash"
           className="bg-transparent focus:border-none focus:outline-none px-5"
         />
         <button
           className="bg-white rounded-full w-7 h-7 shadow-md active:shadow-none"
           type="submit"
+          name="search"
         >
           <FontAwesomeIcon icon={faSearch} />
         </button>
