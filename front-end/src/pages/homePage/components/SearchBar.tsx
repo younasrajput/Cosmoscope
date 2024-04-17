@@ -35,9 +35,10 @@ function SearchBar() {
           className="bg-transparent focus:border-none focus:outline-none px-5"
         />
         <button
+          name="search"
+          aria-label="search"
           className="bg-white rounded-full w-7 h-7 shadow-md active:shadow-none"
           type="submit"
-          name="search"
         >
           <FontAwesomeIcon icon={faSearch} />
         </button>
