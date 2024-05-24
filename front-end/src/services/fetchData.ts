@@ -8,7 +8,7 @@ export const fetchDataCH = async (endpoint: string) => {
     const apiKey = import.meta.env.VITE_ALL_THAT_NODE_API_KEY;
 
     const response = await fetch(
-      `https://cosmos-mainnet-archive.allthatnode.com:1317/${endpoint}`,
+      `https://rpc-zero-gravity-testnet.trusted-point.com:443/${endpoint}`,
       { headers: { "x-allthatnode-api-key": apiKey } },
     );
 
