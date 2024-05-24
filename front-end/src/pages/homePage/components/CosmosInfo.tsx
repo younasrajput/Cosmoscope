@@ -15,15 +15,15 @@ function CosmosInfo() {
 
         <div className="flex justify-between items-center max-sm:flex-col max-sm:justify-none max-sm:items-start">
           <h1 className="font-tenorSans text-3xl max-sm:text-xl max-md:text-2xl">
-            Cosmos Hub
+            0G
           </h1>
 
           {/* icons list */}
           <div className="flex gap-3 max-lg:my-2">
-            {/* cosmos website */}
+            {/* 0G website */}
             <a
-              aria-label="cosmos website"
-              href="https://cosmos.network/"
+              aria-label="0G website"
+              href="https://0g.ai/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-violet-800 transition-all ease-in-out duration-300"
@@ -33,8 +33,8 @@ function CosmosInfo() {
 
             {/* cosmos github */}
             <a
-              aria-label="cosmos github"
-              href="https://github.com/cosmos"
+              aria-label="0G github"
+              href="https://github.com/0glabs/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-violet-800 transition-all ease-in-out duration-300"
@@ -44,8 +44,8 @@ function CosmosInfo() {
 
             {/* cosmos twitter */}
             <a
-              aria-label="cosmos twitter"
-              href="https://twitter.com/cosmos"
+              aria-label="0G twitter"
+              href="https://twitter.com/0G_labs"
               target="_blank"
               rel="noreferrer"
               className="hover:text-violet-800 transition-all ease-in-out duration-300"
@@ -55,8 +55,8 @@ function CosmosInfo() {
 
             {/* cosmos telegram */}
             <a
-              aria-label="cosmos telegram"
-              href="https://t.me/cosmosproject"
+              aria-label="0G telegram"
+              href="https://t.me/web3_0glabs"
               target="_blank"
               rel="noreferrer"
               className="hover:text-violet-800 transition-all ease-in-out duration-300"
@@ -66,8 +66,8 @@ function CosmosInfo() {
 
             {/* cosmos discord */}
             <a
-              aria-label="cosmos discord"
-              href="https://discord.gg/cosmosnetwork"
+              aria-label="0G discord"
+              href="https://discord.com/invite/0glabs"
               target="_blank"
               rel="noreferrer"
               className="hover:text-violet-800 transition-all ease-in-out duration-300"
@@ -78,8 +78,7 @@ function CosmosInfo() {
         </div>
 
         <p className="mt-1 max-md:text-sm max-sm:text-xs">
-          The Cosmos Hub is an Internet of Blockchains, a network of blockchains
-          able to communicate with each other in a decentralized way.
+          0G is an infinitely scalable data availability layer and data storage system that provides the necessary infrastructure to scale Web3 and bring novel use cases on-chain.
         </p>
       </section>
     </>
