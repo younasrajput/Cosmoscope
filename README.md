@@ -3,9 +3,6 @@
 ## Description
 
 This project is a frontend application for a blockchain explorer focused on the Cosmos Network. It allows users to view blocks, transactions, validators, and proposals.
-
-access the cosmoscope here: [**https://cosmoscope.vercel.app**](https://cosmoscope.vercel.app)
-
 ## Features
 
 - **Track ATOM Price:** View the current price of ATOM and its historical price graph.
@@ -26,6 +23,7 @@ access the cosmoscope here: [**https://cosmoscope.vercel.app**](https://cosmosco
 2. Navigate to the project directory: `cd cosmoscope`
 3. Navigate to the front-end folder: `cd front-end`
 4. Install dependencies: `npm install` (or yarn install if using Yarn)
+5. 
 
 ## Usage
 
